@@ -1,3 +1,8 @@
+// Components
+import Heading from './components/Heading';
+import Text from './components/Text';
+
+// Utilities
 import { extendTheme } from '@chakra-ui/react';
 import { createBreakpoints } from '@chakra-ui/theme-tools';
 
@@ -12,6 +17,15 @@ const breakpoints = createBreakpoints({
   lg: '87.5em', // tabletScreen
 });
 
-const theme = extendTheme({ config, breakpoints });
+const components = {
+  Heading,
+  Text,
+};
+
+const theme = extendTheme({
+  config,
+  breakpoints,
+  components,
+});
 
 export default theme;

@@ -8,7 +8,7 @@ const AppNavigation = ({ enableTransition, children, ...rest }) => {
     <Box {...rest}>
       <Header enableTransition={enableTransition} />
       <Box
-        mt='100px'
+        mt='200px'
         minHeight='800px'
         px={['20px', '75px', '200px']}
       >
