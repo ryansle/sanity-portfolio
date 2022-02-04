@@ -25,7 +25,6 @@ const Header = ({ enableTransition }) => {
   return (
     <Slide
       direction='top'
-      reverse
       in={true}
       transition={
         enableTransition
@@ -53,6 +52,7 @@ const Header = ({ enableTransition }) => {
           <Box display='flex'>
             {nav.map((button) => (
               <Button
+                key={button.text}
                 leftIcon={button.icon}
                 mx={1}
                 variant='ghost'

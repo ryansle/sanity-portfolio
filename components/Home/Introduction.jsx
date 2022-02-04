@@ -9,13 +9,23 @@ import {
   chakra
 } from '@chakra-ui/react';
 
+// Utilities
+import { fetchSocialMedia } from '../../data/fetch';
+import { useQuery } from 'react-query';
+
 const Introduction = () => {
+  const { data: socials, isLoading } = useQuery('socials', fetchSocialMedia);
+
   return (
     <Box>
       <Flex justify='space-between' align='center'>
         <Box>
-          <Text variant='bolder' color='teal.300'>
-            Hello, my name is
+          <Text
+            variant='bolder'
+            color='teal.300'
+            mb={-3}
+          >
+            Hello, my name is...
           </Text>
           <Heading variant='huge'>
             Ryan Le
@@ -51,20 +61,11 @@ const Introduction = () => {
         <Box mr={[0, '100px']}>
           <Image
             src='https://i.imgur.com/TAchISX.jpg'
-            width={400}
+            width={450}
             borderRadius='full'
             boxShadow='md'
             mt={10}
           />
-          <Text
-            fontSize='lg'
-            color='gray'
-            mt={5}
-            align='center'
-            mb={[5, 5, 5, 0]}
-          >
-            Sandpoint, Idaho, March 2020
-          </Text>
         </Box>
       </Flex>
     </Box>
