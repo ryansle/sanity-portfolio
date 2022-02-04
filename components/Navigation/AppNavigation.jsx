@@ -3,10 +3,10 @@ import { Box } from '@chakra-ui/react';
 import Header from './Header';
 import Footer from './Footer';
 
-const AppNavigation = ({ children, ...rest }) => {
+const AppNavigation = ({ enableTransition, children, ...rest }) => {
   return (
-    <Box>
-      <Header />
+    <Box {...rest}>
+      <Header enableTransition={enableTransition} />
       <Box
         mt='100px'
         minHeight='800px'

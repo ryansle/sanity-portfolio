@@ -1,12 +1,12 @@
 // Components
 import AppNavigation from '../components/Navigation/AppNavigation';
 
-const Home = () => {
+const Experience = () => {
   return (
-    <AppNavigation enableTransition>
+    <AppNavigation>
 
     </AppNavigation>
   );
 };
 
-export default Home;
+export default Experience;
