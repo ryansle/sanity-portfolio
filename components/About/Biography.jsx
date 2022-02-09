@@ -51,14 +51,14 @@ const Biography = () => {
               boxShadow='md'
               mt={10}
             />
-            <Text my={5} color='gray'>
+            <Text mt={5} mb={-5} color='gray'>
               Lincoln, Nebraska, 2021
             </Text>
           </SlideFade>
         </Box>
       </Flex>
 
-      <SocialMedia title='Follow me on Social Media' />
+      <SocialMedia title='My Social Media' />
     </Box>
   );
 };

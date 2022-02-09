@@ -63,6 +63,8 @@ const Header = ({ enableTransition }) => {
             display='flex'
             alignItems='center'
             width={['full', '15%']}
+            onClick={() => router.push('/')}
+            cursor='pointer'
           >
             <Image
               src='https://i.imgur.com/G2OKPI4.png'
