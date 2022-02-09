@@ -4,70 +4,64 @@ import {
   Box,
   Heading,
   Text,
-  Flex,
   Image,
-  chakra
+  chakra,
+  Wrap,
+  Stack
 } from '@chakra-ui/react';
-
-// Utilities
-import { fetchSocialMedia } from '../../data/fetch';
-import { useQuery } from 'react-query';
+import SocialMedia from '../SocialMedia';
 
 const Introduction = () => {
-  const { data: socials, isLoading } = useQuery('socials', fetchSocialMedia);
-
   return (
     <Box>
-      <Flex justify='space-between' align='center'>
-        <Box>
+      <Wrap justify='space-between' align='center'>
+        <Box width={['100%', '50%']}>
           <Text
-            variant='bolder'
             color='teal.300'
             mb={-3}
+            fontSize='display2'
+            fontWeight='semibold'
           >
-            Hello, my name is...
+            Hello, I'm...
           </Text>
-          <Heading variant='huge'>
+          <Heading fontSize='display'>
             Ryan Le
           </Heading>
 
-          <Text variant='subtitle'>
-            I'm currently a <chakra.span color='teal.300' fontWeight={600}>Web Engineer III</chakra.span> at American Express,
-          </Text>
-          <Text variant='subtitle'>
-            working on all things front-end.
+          <Text fontSize='display3'>
+            I'm currently a <chakra.span color='teal.300' fontWeight={600}>Web Engineer III</chakra.span> at American Express, working on all things front-end.
           </Text>
 
-          <Box mt={10}>
-            <Text variant='body' color='gray'>
+          <Stack mt={10}>
+            <Text color='gray'>
               🚀 &nbsp; Exploring opportunities, side projects, freelancing and more.
             </Text>
-            <Text variant='body' color='gray'>
+            <Text color='gray'>
               🎓 &nbsp; University of Nebraska-Lincoln Alumni. Degree in Software Engineering.
             </Text>
-            <Text variant='body' color='gray'>
+            <Text color='gray'>
               🏙️  &nbsp; Currently based out of New York City.
             </Text>
 
-            <Heading
-              variant='subtitle'
-              mt={10}
-            >
-              Connect with me on Social Media!
-            </Heading>
-          </Box>
+            <SocialMedia title='Connect with me on Social Media!' />
+          </Stack>
         </Box>
 
-        <Box mr={[0, '100px']}>
+        <Box
+          width={['100%', '40%']}
+          align='right'
+          pr={[0, 0, 0, 10]}
+        >
           <Image
             src='https://i.imgur.com/TAchISX.jpg'
             width={450}
+            height='auto'
             borderRadius='full'
             boxShadow='md'
             mt={10}
           />
         </Box>
-      </Flex>
+      </Wrap>
     </Box>
   );
 };

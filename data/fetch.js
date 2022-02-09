@@ -9,7 +9,7 @@ const fetchExperience = async () => {
     summary,
     header,
     responsibilities,
-    'techStack': stack[]->technology,
+    'techStack': stack[]-> { technology, 'iconUrl': icon.asset->url },
     'imageUrl': image.asset->url,
   }`);
 

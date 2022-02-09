@@ -1,7 +1,3 @@
-// Components
-import Heading from './components/Heading';
-import Text from './components/Text';
-
 // Utilities
 import { extendTheme } from '@chakra-ui/react';
 import { createBreakpoints } from '@chakra-ui/theme-tools';
@@ -12,20 +8,28 @@ const config = {
 };
 
 const breakpoints = createBreakpoints({
-  sm: '37.5em', // phoneScreen
-  md: '48em',
-  lg: '87.5em', // tabletScreen
+  sm: '400px', // Phone Screen
+  md: '800px', // Tablet
+  lg: '1280px', // Regular Laptop
+  xl: '1600px'
 });
 
-const components = {
-  Heading,
-  Text,
+const fluidType = (minFont, maxFont) => {
+  let XX = 768 / 100;
+  let YY = (100 * (maxFont - minFont)) / (1920 - 768);
+  let ZZ = minFont / 16;
+  return `calc(${ZZ}rem + ((1vw - ${XX}px) * ${YY}))`;
 };
 
 const theme = extendTheme({
   config,
   breakpoints,
-  components,
+  fontSizes: {
+    display: fluidType(80, 144),
+    display2: fluidType(36, 48),
+    display3: fluidType(24, 36),
+    display4: fluidType(16, 24),
+  },
 });
 
 export default theme;

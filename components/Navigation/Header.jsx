@@ -1,5 +1,13 @@
 // Components
-import { Box, Slide, Flex, Heading, Button } from '@chakra-ui/react';
+import {
+  Box,
+  Slide,
+  Flex,
+  Heading,
+  Button,
+  useMediaQuery,
+} from '@chakra-ui/react';
+import NavMenu from './NavMenu';
 import { AiFillHome as Home } from 'react-icons/ai';
 import { IoPerson as Person } from 'react-icons/io5';
 import { AtSignIcon as Contact } from '@chakra-ui/icons';
@@ -13,6 +21,7 @@ import { useRouter } from 'next/router';
 
 const Header = ({ enableTransition }) => {
   const router = useRouter();
+  const [isLargeScreen] = useMediaQuery('(min-width: 900px)');
 
   const nav = [
     { icon: <Home />, text: 'Home', route: '/' },
@@ -49,19 +58,23 @@ const Header = ({ enableTransition }) => {
               RYAN S. LE
             </Heading>
           </Box>
-          <Box display='flex'>
-            {nav.map((button) => (
-              <Button
-                key={button.text}
-                leftIcon={button.icon}
-                mx={1}
-                variant='ghost'
-                onClick={() => router.push(button.route)}
-              >
-                {button.text}
-              </Button>
-            ))}
-          </Box>
+          {isLargeScreen ? (
+            <Box display='flex'>
+              {nav.map((button) => (
+                <Button
+                  key={button.text}
+                  leftIcon={button.icon}
+                  mx={1}
+                  variant='ghost'
+                  onClick={() => router.push(button.route)}
+                >
+                  {button.text}
+                </Button>
+              ))}
+            </Box>
+          ) : (
+            <NavMenu />
+          )}
         </Flex>
       </Box>
     </Slide>
