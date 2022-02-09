@@ -5,7 +5,10 @@ import {
   Flex,
   Heading,
   Button,
+  Image,
+  IconButton,
   useMediaQuery,
+  useColorMode,
 } from '@chakra-ui/react';
 import NavMenu from './NavMenu';
 import { AiFillHome as Home } from 'react-icons/ai';
@@ -15,13 +18,14 @@ import {
   MdWork as Work,
   MdLaptopMac as Mac,
 } from 'react-icons/md';
+import { SunIcon as Sun, MoonIcon as Moon } from '@chakra-ui/icons';
 
 // Utilities
 import { useRouter } from 'next/router';
 
-// TODO: Fix refresh on mobile glitch
 const Header = ({ enableTransition }) => {
   const router = useRouter();
+  const { colorMode, toggleColorMode } = useColorMode();
   const [isMobileScreen] = useMediaQuery('(max-width: 900px)');
 
   const nav = [
@@ -48,35 +52,49 @@ const Header = ({ enableTransition }) => {
         bg='gray.700'
         borderBottomWidth='1px'
         px={['20px', '120px']}
-        py='25px'
+        py={['12px', '20px']}
       >
         <Flex
           justify='space-between'
           align='center'
         >
-          <Box>
+          <Box display='flex' alignItems='center'>
+            <Image
+              src='https://i.imgur.com/G2OKPI4.png'
+              width='50px'
+              mr={5}
+              borderRadius='full'
+            />
             <Heading size='md'>
               RYAN S. LE
             </Heading>
           </Box>
+
           {isMobileScreen ? (
             <Box>
               <NavMenu />
             </Box>
           ) : (
-            <Box display='flex'>
-              {nav.map((button) => (
-                <Button
-                  key={button.text}
-                  leftIcon={button.icon}
-                  mx={1}
-                  variant='ghost'
-                  onClick={() => router.push(button.route)}
-                >
-                  {button.text}
-                </Button>
-              ))}
-            </Box>
+            <>
+              <Box display='flex'>
+                {nav.map((button) => (
+                  <Button
+                    key={button.text}
+                    leftIcon={button.icon}
+                    mx={1}
+                    variant='ghost'
+                    onClick={() => router.push(button.route)}
+                  >
+                    {button.text}
+                  </Button>
+                ))}
+              </Box>
+              <IconButton
+                variant='ghost'
+                fontSize='20px'
+                icon={colorMode === 'light' ? <Moon /> : <Sun />}
+              />
+            </>
           )}
         </Flex>
       </Box >
