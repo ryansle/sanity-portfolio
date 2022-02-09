@@ -1,6 +1,6 @@
 // Components
 import {
-  Stack,
+  Wrap,
   Box,
   Button,
   Heading
@@ -49,7 +49,7 @@ const SocialMedia = ({ title, }) => {
         {title}
       </Heading>
 
-      <Stack direction='row' spacing={3}>
+      <Wrap direction='row' spacing={3}>
         {socials?.map((item) => (
           // TODO: hover effect
           <Button
@@ -59,7 +59,7 @@ const SocialMedia = ({ title, }) => {
             {item.platform}
           </Button>
         ))}
-      </Stack>
+      </Wrap>
     </Box>
   );
 };

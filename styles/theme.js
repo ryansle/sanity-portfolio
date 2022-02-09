@@ -25,7 +25,7 @@ const theme = extendTheme({
   config,
   breakpoints,
   fontSizes: {
-    display: fluidType(80, 144),
+    display: fluidType(80, 120),
     display2: fluidType(36, 48),
     display3: fluidType(24, 36),
     display4: fluidType(16, 24),
