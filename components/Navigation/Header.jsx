@@ -9,6 +9,7 @@ import {
   IconButton,
   useMediaQuery,
   useColorMode,
+  Center,
 } from '@chakra-ui/react';
 import NavMenu from './NavMenu';
 import { AiFillHome as Home } from 'react-icons/ai';
@@ -26,7 +27,7 @@ import { useRouter } from 'next/router';
 const Header = ({ enableTransition }) => {
   const router = useRouter();
   const { colorMode, toggleColorMode } = useColorMode();
-  const [isMobileScreen] = useMediaQuery('(max-width: 900px)');
+  const [isMobileScreen] = useMediaQuery('(max-width: 1200px)');
 
   const nav = [
     { icon: <Home />, text: 'Home', route: '/' },
@@ -58,7 +59,11 @@ const Header = ({ enableTransition }) => {
           justify='space-between'
           align='center'
         >
-          <Box display='flex' alignItems='center' width='33%'>
+          <Box
+            display='flex'
+            alignItems='center'
+            width={['full', '15%']}
+          >
             <Image
               src='https://i.imgur.com/G2OKPI4.png'
               width='50px'
@@ -71,26 +76,30 @@ const Header = ({ enableTransition }) => {
           </Box>
 
           {isMobileScreen ? (
-            <Box>
+            <Box width='full' align='right'>
               <NavMenu />
             </Box>
           ) : (
             <>
-              <Box display='flex' width='33%'>
+              <Center
+                display='flex'
+                width='70%'
+                alignItems='center'
+              >
                 {nav.map((button) => (
                   <Button
                     key={button.text}
                     leftIcon={button.icon}
-                    mx={1}
+                    mx='10px'
                     variant='ghost'
                     onClick={() => router.push(button.route)}
                   >
                     {button.text}
                   </Button>
                 ))}
-              </Box>
+              </Center>
 
-              <Box align='right' width='33%'>
+              <Box align='right' width='15%'>
                 <IconButton
                   variant='ghost'
                   fontSize='20px'
@@ -98,11 +107,10 @@ const Header = ({ enableTransition }) => {
                 />
               </Box>
             </>
-          )
-          }
-        </Flex >
-      </Box >
-    </Slide >
+          )}
+        </Flex>
+      </Box>
+    </Slide>
   );
 };
 

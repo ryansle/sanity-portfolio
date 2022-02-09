@@ -31,7 +31,7 @@ const Education = () => {
       >
         <Box width={['100%', '40%']} align='center'>
           <Image
-            src='./nebraska.svg'
+            src='https://i.imgur.com/tTJbtDa.png'
             width={[200, 300]}
             height='auto'
             mb={[10, 0]}

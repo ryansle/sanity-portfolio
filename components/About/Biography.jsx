@@ -18,7 +18,7 @@ const Biography = () => {
       <Heading size='2xl' mb={5}>
         About Me
       </Heading>
-      <Flex justify='space-between' align='center' flexWrap='wrap-reverse'>
+      <Flex justify='space-between' align='center' flexWrap='wrap'>
         <Box width={['100%', '45%']}>
           <Stack spacing={5}>
             <Text fontSize='lg'>
@@ -36,7 +36,7 @@ const Biography = () => {
           </Stack>
         </Box>
 
-        <Box width={['100%', '45%']} align='right'>
+        <Box width={['100%', '45%']} align='center'>
           <SlideFade
             direction='top'
             in={true}
@@ -45,12 +45,15 @@ const Biography = () => {
           >
             <Image
               src='https://i.imgur.com/Cnbdpg1.png'
-              width={420}
+              width={['100%', 420]}
               height='auto'
               borderRadius={10}
               boxShadow='md'
-              my={10}
+              mt={10}
             />
+            <Text my={5} color='gray'>
+              Lincoln, Nebraska, 2021
+            </Text>
           </SlideFade>
         </Box>
       </Flex>
