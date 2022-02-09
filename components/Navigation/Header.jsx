@@ -21,7 +21,7 @@ import { useRouter } from 'next/router';
 
 const Header = ({ enableTransition }) => {
   const router = useRouter();
-  const [isLargeScreen] = useMediaQuery('(min-width: 900px)');
+  const [isMobileScreen] = useMediaQuery('(max-width: 900px)');
 
   const nav = [
     { icon: <Home />, text: 'Home', route: '/' },
@@ -58,7 +58,9 @@ const Header = ({ enableTransition }) => {
               RYAN S. LE
             </Heading>
           </Box>
-          {isLargeScreen ? (
+          {isMobileScreen ? (
+            <NavMenu />
+          ) : (
             <Box display='flex'>
               {nav.map((button) => (
                 <Button
@@ -72,8 +74,6 @@ const Header = ({ enableTransition }) => {
                 </Button>
               ))}
             </Box>
-          ) : (
-            <NavMenu />
           )}
         </Flex>
       </Box>

@@ -68,6 +68,7 @@ const Introduction = () => {
             direction='top'
             in={true}
             transition={{ enter: { duration: 0.4, delay: 1 } }}
+            align='center'
           >
             <Image
               src='https://i.imgur.com/TAchISX.jpg'
@@ -77,6 +78,10 @@ const Introduction = () => {
               boxShadow='md'
               mt={10}
             />
+            <Text mt={5} color='gray' align='center'>
+              Here's me in Sandpoint, Idaho. <br />
+              I like to travel.
+            </Text>
           </SlideFade>
         </Box>
       </Wrap >
