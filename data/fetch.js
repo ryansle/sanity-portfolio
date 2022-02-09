@@ -47,4 +47,18 @@ const fetchSocialMedia = async () => {
   return data;
 };
 
-export { fetchExperience, fetchSkills, fetchProjects, fetchSocialMedia };
+const fetchAccomplishments = async () => {
+  const data = await sanityClient.fetch(`*[_type == 'accomplishments'] {
+    accomplishment,
+  }`);
+
+  return data;
+};
+
+export {
+  fetchExperience,
+  fetchSkills,
+  fetchProjects,
+  fetchSocialMedia,
+  fetchAccomplishments,
+};

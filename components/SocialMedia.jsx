@@ -18,9 +18,8 @@ import { fetchSocialMedia } from '../data/fetch';
 import { useQuery } from 'react-query';
 
 const SocialMedia = ({ title, }) => {
+  // TODO: Skeleton fallback with isLoading
   const { data: socials, isLoading } = useQuery('socials', fetchSocialMedia);
-
-  console.log(socials);
 
   const renderIcon = (platform) => {
     switch (platform) {
@@ -55,6 +54,7 @@ const SocialMedia = ({ title, }) => {
           <Button
             key={item.platform}
             leftIcon={renderIcon(item.platform)}
+            zIndex={-10}
           >
             {item.platform}
           </Button>

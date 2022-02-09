@@ -19,6 +19,7 @@ import {
 // Utilities
 import { useRouter } from 'next/router';
 
+// TODO: Fix refresh on mobile glitch
 const Header = ({ enableTransition }) => {
   const router = useRouter();
   const [isMobileScreen] = useMediaQuery('(max-width: 900px)');

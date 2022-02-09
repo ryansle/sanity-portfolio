@@ -72,9 +72,9 @@ const Introduction = () => {
           >
             <Image
               src='https://i.imgur.com/TAchISX.jpg'
-              width={700}
+              width={600}
               height='auto'
-              borderRadius='full'
+              borderRadius={25}
               boxShadow='md'
               mt={10}
             />
