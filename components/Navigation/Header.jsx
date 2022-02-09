@@ -60,7 +60,9 @@ const Header = ({ enableTransition }) => {
             </Heading>
           </Box>
           {isMobileScreen ? (
-            <NavMenu />
+            <Box>
+              <NavMenu />
+            </Box>
           ) : (
             <Box display='flex'>
               {nav.map((button) => (
@@ -77,8 +79,8 @@ const Header = ({ enableTransition }) => {
             </Box>
           )}
         </Flex>
-      </Box>
-    </Slide>
+      </Box >
+    </Slide >
   );
 };
 
