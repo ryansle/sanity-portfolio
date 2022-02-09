@@ -58,7 +58,7 @@ const Header = ({ enableTransition }) => {
           justify='space-between'
           align='center'
         >
-          <Box display='flex' alignItems='center'>
+          <Box display='flex' alignItems='center' width='33%'>
             <Image
               src='https://i.imgur.com/G2OKPI4.png'
               width='50px'
@@ -76,7 +76,7 @@ const Header = ({ enableTransition }) => {
             </Box>
           ) : (
             <>
-              <Box display='flex'>
+              <Box display='flex' width='33%'>
                 {nav.map((button) => (
                   <Button
                     key={button.text}
@@ -89,14 +89,18 @@ const Header = ({ enableTransition }) => {
                   </Button>
                 ))}
               </Box>
-              <IconButton
-                variant='ghost'
-                fontSize='20px'
-                icon={colorMode === 'light' ? <Moon /> : <Sun />}
-              />
+
+              <Box align='right' width='33%'>
+                <IconButton
+                  variant='ghost'
+                  fontSize='20px'
+                  icon={colorMode === 'light' ? <Moon /> : <Sun />}
+                />
+              </Box>
             </>
-          )}
-        </Flex>
+          )
+          }
+        </Flex >
       </Box >
     </Slide >
   );

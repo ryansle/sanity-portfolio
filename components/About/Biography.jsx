@@ -49,11 +49,8 @@ const Biography = () => {
               height='auto'
               borderRadius={10}
               boxShadow='md'
-              mt={10}
+              my={10}
             />
-            <Text mt={5} color='gray' align='center' mb={5}>
-              Lincoln, Nebraska, 2021
-            </Text>
           </SlideFade>
         </Box>
       </Flex>

@@ -1,3 +1,6 @@
+// Components
+import Input from './components/Input';
+
 // Utilities
 import { extendTheme } from '@chakra-ui/react';
 import { createBreakpoints } from '@chakra-ui/theme-tools';
@@ -21,9 +24,12 @@ const fluidType = (minFont, maxFont) => {
   return `calc(${ZZ}rem + ((1vw - ${XX}px) * ${YY}))`;
 };
 
+const components = { Input };
+
 const theme = extendTheme({
   config,
   breakpoints,
+  components,
   fontSizes: {
     display: fluidType(80, 120),
     display2: fluidType(36, 48),
