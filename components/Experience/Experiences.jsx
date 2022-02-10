@@ -32,7 +32,7 @@ const Experiences = () => {
             key={job.company}
             direction='top'
             in={true}
-            transition={{ enter: { duration: 0.3, delay: 0.3 } }}
+            transition={{ enter: { duration: 1, delay: (index / 2.2) - 0.3 } }}
           >
             <WorkExperience data={job} />
             {index !== experience?.length - 1 && <Divider my='10px' />}

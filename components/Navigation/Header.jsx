@@ -17,6 +17,7 @@ import { IoPerson as Person } from 'react-icons/io5';
 import { AtSignIcon as Contact } from '@chakra-ui/icons';
 import {
   MdWork as Work,
+  MdCode as Code,
   MdLaptopMac as Mac,
 } from 'react-icons/md';
 import { SunIcon as Sun, MoonIcon as Moon } from '@chakra-ui/icons';
@@ -34,6 +35,7 @@ const Header = ({ enableTransition }) => {
     { icon: <Home />, text: 'Home', route: '/' },
     { icon: <Person />, text: 'About', route: '/about' },
     { icon: <Work />, text: 'Experience', route: '/experience' },
+    { icon: <Code />, text: 'Skills', route: '/skills' },
     { icon: <Mac />, text: 'Projects', route: '/projects' },
     { icon: <Contact />, text: 'Contact', route: '/contact' },
   ];
@@ -49,9 +51,9 @@ const Header = ({ enableTransition }) => {
       }
     >
       <Box
-        zIndex={10}
-        width='full'
+        zIndex={100}
         bg='gray.700'
+        width='full'
         borderBottomWidth='1px'
         px={['20px', '120px']}
         py={['12px', '20px']}
@@ -79,8 +81,8 @@ const Header = ({ enableTransition }) => {
           </Box>
 
           {isMobileScreen ? (
-            <Box width='full' align='right'>
-              <NavMenu />
+            <Box align='right'>
+              <NavMenu nav={nav} />
             </Box>
           ) : (
             <>

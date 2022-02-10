@@ -54,11 +54,13 @@ const WorkExperience = ({ data }) => {
           <Heading
             fontWeight='semibold'
             fontSize='xl'
-            mb={5}
+            mb={2}
+            mt={8}
+            color='teal.300'
           >
             {header}
           </Heading>
-          <List spacing={2} fontSize='lg'>
+          <List spacing={2} fontSize='md'>
             {responsibilities.map((res) => (
               <ListItem key={res}>
                 <ListIcon as={Gear} color='teal.300' />
@@ -75,8 +77,8 @@ const WorkExperience = ({ data }) => {
             my={[10, 0]}
           />
         </Box>
-      </Flex>
-    </Box>
+      </Flex >
+    </Box >
   );
 };
 

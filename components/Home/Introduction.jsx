@@ -15,7 +15,7 @@ const Introduction = () => {
   return (
     <Box>
       <Wrap justify='space-between' align='center'>
-        <Box width={['100%', '50%']}>
+        <Box width={['100%', '54%']}>
           <SlideFade
             direction='top'
             in={true}
@@ -84,8 +84,8 @@ const Introduction = () => {
             </Text>
           </SlideFade>
         </Box>
-      </Wrap >
-    </Box >
+      </Wrap>
+    </Box>
   );
 };
 

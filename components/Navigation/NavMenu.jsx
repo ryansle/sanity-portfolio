@@ -21,17 +21,9 @@ import { SunIcon as Sun, MoonIcon as Moon } from '@chakra-ui/icons';
 // Utilities
 import { useRouter } from 'next/router';
 
-const NavMenu = () => {
+const NavMenu = ({ nav }) => {
   const router = useRouter();
   const { colorMode, toggleColorMode } = useColorMode();
-
-  const nav = [
-    { icon: <Home />, text: 'Home', route: '/' },
-    { icon: <Person />, text: 'About', route: '/about' },
-    { icon: <Work />, text: 'Experience', route: '/experience' },
-    { icon: <Mac />, text: 'Projects', route: '/projects' },
-    { icon: <Contact />, text: 'Contact', route: '/contact' },
-  ];
 
   return (
     <Menu>

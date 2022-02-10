@@ -3,7 +3,8 @@ import {
   Wrap,
   Box,
   Button,
-  Heading
+  Heading,
+  Skeleton
 } from '@chakra-ui/react';
 import {
   AiFillInstagram as Instagram,
@@ -49,16 +50,27 @@ const SocialMedia = ({ title, }) => {
       </Heading>
 
       <Wrap direction='row' spacing={3}>
-        {socials?.map((item) => (
-          // TODO: hover effect
-          <Button
-            key={item.platform}
-            leftIcon={renderIcon(item.platform)}
-            zIndex={-10}
-          >
-            {item.platform}
-          </Button>
-        ))}
+        {isLoading && (
+          Array(5).fill('').map((_, index) => (
+            <Skeleton
+              key={index}
+              height='40px'
+              borderRadius={10}
+              width='110px'
+            />
+          ))
+        )}
+
+        {!isLoading && (
+          socials?.map((item) => (
+            <Button
+              key={item.platform}
+              leftIcon={renderIcon(item.platform)}
+            >
+              {item.platform}
+            </Button>
+          ))
+        )}
       </Wrap>
     </Box>
   );
