@@ -10,6 +10,7 @@ import {
   useMediaQuery,
   useColorMode,
   Center,
+  useColorModeValue,
 } from '@chakra-ui/react';
 import NavMenu from './NavMenu';
 import { AiFillHome as Home } from 'react-icons/ai';
@@ -30,6 +31,10 @@ const Header = ({ enableTransition }) => {
   const router = useRouter();
   const { colorMode, toggleColorMode } = useColorMode();
   const [isMobileScreen] = useMediaQuery('(max-width: 1200px)');
+
+  // Styles
+  const background = useColorModeValue('white', 'gray.700');
+  const borderColor = useColorModeValue('gray.400', '');
 
   const nav = [
     { icon: <Home />, text: 'Home', route: '/' },
@@ -52,9 +57,10 @@ const Header = ({ enableTransition }) => {
     >
       <Box
         zIndex={100}
-        bg='gray.700'
+        bg={background}
         width='full'
         borderBottomWidth='1px'
+        borderBottomColor={borderColor}
         px={['20px', '120px']}
         py={['12px', '20px']}
       >
@@ -110,6 +116,7 @@ const Header = ({ enableTransition }) => {
                   fontSize='20px'
                   icon={colorMode === 'light' ? <Moon /> : <Sun />}
                   onClick={toggleColorMode}
+
                 />
               </Box>
             </>

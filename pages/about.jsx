@@ -7,7 +7,7 @@ import Education from '../components/About/Education';
 const About = () => {
   // TODO: Larger margins between content and footer
   return (
-    <AppNavigation px={['0px', '0px', '0px', '5vw']}>
+    <AppNavigation px={['0px', '0px', '0px', '3vw']}>
       <Biography />
       <Divider my={['50px', '100px']} />
       <Education />

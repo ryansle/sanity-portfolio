@@ -8,6 +8,7 @@ import {
   ListIcon,
   Flex,
   Image,
+  useColorModeValue
 } from '@chakra-ui/react';
 import { MdSettings as Gear } from 'react-icons/md';
 
@@ -24,6 +25,9 @@ const WorkExperience = ({ data }) => {
     imageUrl,
   } = data;
 
+  // Styles
+  const flavorText = useColorModeValue('teal.500', 'teal.300');
+
   return (
     <Box>
       <Flex justify='space-between' align='center' flexWrap='wrap-reverse'>
@@ -35,14 +39,14 @@ const WorkExperience = ({ data }) => {
           <Text
             fontSize='lg'
             fontWeight='semibold'
-            color='teal.300'
+            color={flavorText}
           >
             {title}
           </Text>
 
           <Text
             fontSize='lg'
-            color='teal.300'
+            color={flavorText}
           >
             {dates}
           </Text>
@@ -56,14 +60,14 @@ const WorkExperience = ({ data }) => {
             fontSize='xl'
             mb={2}
             mt={8}
-            color='teal.300'
+            color={flavorText}
           >
             {header}
           </Heading>
           <List spacing={2} fontSize='md'>
             {responsibilities.map((res) => (
               <ListItem key={res}>
-                <ListIcon as={Gear} color='teal.300' />
+                <ListIcon as={Gear} color={flavorText} />
                 {res}
               </ListItem>
             ))}

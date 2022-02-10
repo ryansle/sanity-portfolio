@@ -4,7 +4,8 @@ import {
   Box,
   Button,
   Heading,
-  Skeleton
+  Skeleton,
+  useColorModeValue,
 } from '@chakra-ui/react';
 import {
   AiFillInstagram as Instagram,
@@ -22,18 +23,21 @@ const SocialMedia = ({ title, }) => {
   // TODO: Skeleton fallback with isLoading
   const { data: socials, isLoading } = useQuery('socials', fetchSocialMedia);
 
+  // Styles
+  const flavorColor = useColorModeValue('#309795', '#4FD1C');
+
   const renderIcon = (platform) => {
     switch (platform) {
       case 'Spotify':
-        return <Spotify color='#4FD1C5' />;
+        return <Spotify color={flavorColor} />;
       case 'Twitter':
-        return <Twitter color='#4FD1C5' />;
+        return <Twitter color={flavorColor} />;
       case 'Instagram':
-        return <Instagram color='#4FD1C5' />;
+        return <Instagram color={flavorColor} />;
       case 'GitHub':
-        return <GitHub color='#4FD1C5' />;
+        return <GitHub color={flavorColor} />;
       case 'LinkedIn':
-        return <LinkedIn color='#4FD1C5' />;
+        return <LinkedIn color={flavorColor} />;
       default:
         return;
     };

@@ -7,11 +7,14 @@ import {
   Image,
   chakra,
   Wrap,
-  Stack
+  Stack,
+  useColorModeValue
 } from '@chakra-ui/react';
 import SocialMedia from '../SocialMedia';
 
 const Introduction = () => {
+  const flavorText = useColorModeValue('teal.500', 'teal.300');
+
   return (
     <Box>
       <Wrap justify='space-between' align='center'>
@@ -22,7 +25,7 @@ const Introduction = () => {
             transition={{ enter: { duration: 0.4, delay: 0.8 } }}
           >
             <Text
-              color='teal.300'
+              color={flavorText}
               mb={-3}
               fontSize='display2'
               fontWeight='semibold'
@@ -40,7 +43,7 @@ const Introduction = () => {
             transition={{ enter: { duration: 0.4, delay: 0.9 } }}
           >
             <Text fontSize='display3'>
-              I'm currently a <chakra.span color='teal.300' fontWeight={600}>Web Engineer III</chakra.span> at American Express, working on all things front-end.
+              I'm currently a <chakra.span color={flavorText} fontWeight={600}>Web Engineer III</chakra.span> at American Express, working on all things front-end.
             </Text>
 
             <Stack mt={10}>

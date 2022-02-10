@@ -11,6 +11,7 @@ import {
   Button,
   FormHelperText,
   useToast,
+  useColorModeValue,
 } from '@chakra-ui/react';
 import { AiOutlineClear as Clear } from 'react-icons/ai';
 import { BiMailSend as Send } from 'react-icons/bi';
@@ -31,6 +32,7 @@ const ContactForm = () => {
   const [form, setForm] = useState(initialForm);
   const [loading, setLoading] = useState(false);
   const toast = useToast();
+  const themeColor = useColorModeValue('teal.500', 'teal.300');
 
   const updateForm = (e) => {
     const { name, value } = e.target;
@@ -136,7 +138,7 @@ const ContactForm = () => {
       <HStack justify='space-between' mt={5}>
         <Button
           colorScheme='#teal'
-          bg='teal.300'
+          bg={themeColor}
           leftIcon={<Clear />}
           onClick={clearForm}
         >
@@ -144,7 +146,7 @@ const ContactForm = () => {
         </Button>
         <Button
           colorScheme='teal'
-          bg='teal.300'
+          bg={themeColor}
           rightIcon={<Send />}
           loadingText='Sending...'
           isDisabled={

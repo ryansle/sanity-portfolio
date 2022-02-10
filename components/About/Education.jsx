@@ -10,6 +10,7 @@ import {
   ListIcon,
   Icon,
   chakra,
+  useColorModeValue
 } from '@chakra-ui/react';
 import { MdCheckCircle as Check } from 'react-icons/md';
 import { FaGraduationCap as Grad } from 'react-icons/fa';
@@ -19,8 +20,12 @@ import { fetchAccomplishments } from '../../data/fetch';
 import { useQuery } from 'react-query';
 import SlideUpWhenVisible from '../../hooks/SlideUpWhenVisible';
 
+// TODO: Use loading state
 const Education = () => {
   const { data: accomplishments, isLoading } = useQuery('accomplishments', fetchAccomplishments);
+
+  // Styles
+  const flavorText = useColorModeValue('teal.500', 'teal.300');
 
   return (
     <SlideUpWhenVisible>
@@ -46,13 +51,13 @@ const Education = () => {
             University of Nebraska-Lincoln
           </Heading>
           <Text fontSize='lg'>
-            Bachelor of Science Degree in <chakra.span color='teal.300'>Software Engineering</chakra.span>; Minor in <chakra.span color='teal.300'>Mathematics</chakra.span>
+            Bachelor of Science Degree in <chakra.span color={flavorText} fontWeight='semibold'>Software Engineering</chakra.span>; Minor in <chakra.span color={flavorText} fontWeight='semibold'>Mathematics</chakra.span>.
           </Text>
           <Text fontSize='lg'>
-            <chakra.span color='teal.300'>Cumulative GPA</chakra.span>: 3.64 / 4.00
+            <chakra.span color={flavorText} fontWeight='semibold'>Cumulative GPA</chakra.span>: 3.64 / 4.00
           </Text>
           <Text fontSize='lg'>
-            <chakra.span color='teal.300'>Graduation Date</chakra.span>: May 8th, 2021 <Icon as={Grad} />
+            <chakra.span color={flavorText} fontWeight='semibold'>Graduation Date</chakra.span>: May 8th, 2021 <Icon as={Grad} />
           </Text>
 
           <Heading size='md' mt={5} mb={3}>
@@ -61,7 +66,7 @@ const Education = () => {
           <List spacing={2}>
             {accomplishments?.map((bullet) => (
               <ListItem key={bullet.accomplishment} fontSize='sm'>
-                <ListIcon as={Check} color='teal.300' />
+                <ListIcon as={Check} color={flavorText} />
                 {bullet.accomplishment}
               </ListItem>
             ))}
