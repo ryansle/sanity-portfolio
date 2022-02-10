@@ -44,6 +44,7 @@ const NavMenu = () => {
       <MenuList>
         {nav.map((item) => (
           <MenuItem
+            key={item.text}
             icon={item.icon}
             onClick={() => router.push(item.route)}
           >

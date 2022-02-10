@@ -55,6 +55,19 @@ export default {
       title: 'Image',
       type: 'image',
       validation: (rule) => rule.required(),
+    },
+    {
+      name: 'loadOrder',
+      title: 'Load Order',
+      type: 'number',
+      description: 'The order in which you want these items displayed.',
+      validation: (rule) => rule.required(),
     }
   ],
+  preview: {
+    select: {
+      title: 'company',
+      media: 'image',
+    }
+  }
 };

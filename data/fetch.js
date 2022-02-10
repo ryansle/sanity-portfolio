@@ -11,6 +11,7 @@ const fetchExperience = async () => {
     responsibilities,
     'techStack': stack[]-> { technology, 'iconUrl': icon.asset->url },
     'imageUrl': image.asset->url,
+    loadOrder,
   }`);
 
   return data;

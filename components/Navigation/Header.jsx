@@ -24,6 +24,7 @@ import { SunIcon as Sun, MoonIcon as Moon } from '@chakra-ui/icons';
 // Utilities
 import { useRouter } from 'next/router';
 
+// TODO: Selection indicator
 const Header = ({ enableTransition }) => {
   const router = useRouter();
   const { colorMode, toggleColorMode } = useColorMode();
@@ -106,6 +107,7 @@ const Header = ({ enableTransition }) => {
                   variant='ghost'
                   fontSize='20px'
                   icon={colorMode === 'light' ? <Moon /> : <Sun />}
+                  onClick={toggleColorMode}
                 />
               </Box>
             </>
