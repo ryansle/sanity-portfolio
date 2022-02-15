@@ -20,9 +20,10 @@ const fetchExperience = async () => {
 const fetchSkills = async () => {
   const data = await sanityClient.fetch(`*[_type == 'skills'] {
     technology,
-    'iconUrl': icon.asset->url,
+    'imageUrl': icon.asset->url,
     experiences,
     confidence,
+    category,
   }`);
 
   return data;

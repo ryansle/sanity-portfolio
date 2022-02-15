@@ -30,6 +30,20 @@ export default {
       description: 'On a scale of 1-5, how confident are you with this technology?',
       validation: (rule) => rule.required(),
     },
+    {
+      name: 'category',
+      title: 'Category',
+      type: 'string',
+      description: 'What type of skill is this?',
+      options: {
+        list: [
+          { title: 'Web Development', value: 'webdev' },
+          { title: 'Other', value: 'other' },
+          { title: 'Random', value: 'random' },
+        ],
+      },
+      validation: (Rule) => Rule.required(),
+    },
   ],
   preview: {
     select: {
