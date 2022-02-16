@@ -20,7 +20,6 @@ import { fetchSocialMedia } from '../data/fetch';
 import { useQuery } from 'react-query';
 
 const SocialMedia = ({ title, }) => {
-  // TODO: Skeleton fallback with isLoading
   const { data: socials, isLoading } = useQuery('socials', fetchSocialMedia);
 
   // Styles

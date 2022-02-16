@@ -28,6 +28,7 @@ const initialForm = {
   validEmail: true,
 };
 
+// TODO: Fix z-indexing of Input fields
 const ContactForm = () => {
   const [form, setForm] = useState(initialForm);
   const [loading, setLoading] = useState(false);

@@ -8,9 +8,8 @@ import WorkExperience from './WorkExperience';
 import { useQuery } from 'react-query';
 import { fetchExperience } from '../../data/fetch';
 
-// TODO: Loader
 const Experiences = () => {
-  const { data, isLoading } = useQuery('experience', fetchExperience);
+  const { data } = useQuery('experience', fetchExperience);
   const [experience, setExperience] = useState([]);
 
   useEffect(() => {
@@ -32,7 +31,7 @@ const Experiences = () => {
             key={job.company}
             direction='top'
             in={true}
-            transition={{ enter: { duration: 1, delay: (index / 2.2) - 0.3 } }}
+            transition={{ enter: { duration: 1, delay: (index / 2.1) - 0.3 } }}
           >
             <WorkExperience data={job} />
             {index !== experience?.length - 1 && <Divider my='10px' />}

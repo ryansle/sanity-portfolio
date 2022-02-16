@@ -20,9 +20,8 @@ import { fetchAccomplishments } from '../../data/fetch';
 import { useQuery } from 'react-query';
 import SlideUpWhenVisible from '../../hooks/SlideUpWhenVisible';
 
-// TODO: Use loading state
 const Education = () => {
-  const { data: accomplishments, isLoading } = useQuery('accomplishments', fetchAccomplishments);
+  const { data: accomplishments } = useQuery('accomplishments', fetchAccomplishments);
 
   // Styles
   const flavorText = useColorModeValue('teal.500', 'teal.300');

@@ -25,7 +25,7 @@ const LegendCell = ({ amount }) => {
 
   return (
     <Tr>
-      <Td>
+      <Td width='38%'>
         {Array(5)
           .fill('')
           .map((_, i) => (

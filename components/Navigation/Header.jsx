@@ -28,6 +28,8 @@ import { useRouter } from 'next/router';
 
 // TODO: Selection indicator
 // TODO: Revise component structure, fix trailing space on IconButton
+// TODO: fix z-indexing of buttons with icons
+// TODO: Fix z-indexing of dividers
 const Header = ({ enableTransition }) => {
   const router = useRouter();
   const { colorMode, toggleColorMode } = useColorMode();
@@ -57,7 +59,7 @@ const Header = ({ enableTransition }) => {
       }
     >
       <Box
-        zIndex={100}
+        zIndex={4}
         bg={background}
         width='full'
         borderBottomWidth='1px'

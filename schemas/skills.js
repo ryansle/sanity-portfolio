@@ -59,3 +59,6 @@ export default {
     },
   },
 };
+
+// TODO: visiblility tag
+// TODO: add data for skills I don't use regularly, but want displayed on old projects

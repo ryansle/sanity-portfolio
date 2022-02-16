@@ -14,6 +14,8 @@ import { AiFillGithub as GitHub } from 'react-icons/ai';
 import { ExternalLinkIcon as ExternalLink } from '@chakra-ui/icons';
 
 // TODO: Skill tags
+// TODO: images
+// TODO: consistent ordering on skills
 const ProjectCard = ({ project }) => {
   const {
     title,
@@ -30,14 +32,21 @@ const ProjectCard = ({ project }) => {
     <Box
       borderWidth='1px'
       borderRadius={10}
-      height={['full', '200px']}
+      height={['full', '450px']}
       width='full'
+      maxHeight='500px'
       bg={bgColor}
     >
-      <Image src={imageUrl} />
+      <Image
+        src={imageUrl}
+        borderTopRadius={10}
+        height='auto'
+        width='auto'
+        objectFit='cover'
+      />
       <Box p={5}>
         <Flex justify='space-between' align='center'>
-          <Heading>
+          <Heading fontSize='display3'>
             {title}
           </Heading>
           {subtitle && (

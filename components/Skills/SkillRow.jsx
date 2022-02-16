@@ -11,6 +11,7 @@ import {
 import { StarIcon as Star } from '@chakra-ui/icons';
 import CompanyTag from '../CompanyTag';
 
+// TODO: Fix stars on smaller screens
 const SkillRow = ({ imageUrl, radii, name, experiences, confidence }) => {
   const activeStarColor = useColorModeValue('teal.500', 'teal.300');
   const inactiveStarColor = useColorModeValue('gray.500', 'gray.300');

@@ -1,8 +1,7 @@
 // Components
-import { Box, Wrap, Heading, Text, Divider } from '@chakra-ui/react';
+import { Box, Heading, Text, Divider, SimpleGrid } from '@chakra-ui/react';
 import ProjectCard from './ProjectCard';
 
-// TODO: dynamic projectcard size
 const ProjectSection = ({ title, description, projects }) => {
   return (
     <Box>
@@ -12,22 +11,14 @@ const ProjectSection = ({ title, description, projects }) => {
       <Text fontSize='lg' mb={4}>
         {description}
       </Text>
-
-      <Wrap
-        align='flex-start'
-        wrap='wrap'
-        spacing={3}
-        justify='space-between'
-      >
+      <SimpleGrid columns={{ sm: 1, md: 2 }} spacing={4}>
         {projects?.map((project) => (
-          <Box width={['100%', '49%']}>
-            <ProjectCard
-              key={project.title}
-              project={project}
-            />
-          </Box>
+          <ProjectCard
+            key={project.title}
+            project={project}
+          />
         ))}
-      </Wrap>
+      </SimpleGrid>
 
       <Divider my={10} />
     </Box>

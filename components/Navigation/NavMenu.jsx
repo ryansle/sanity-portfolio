@@ -9,13 +9,6 @@ import {
   useColorMode,
 } from '@chakra-ui/react';
 import { HamburgerIcon as Hamburger } from '@chakra-ui/icons';
-import { AiFillHome as Home } from 'react-icons/ai';
-import { IoPerson as Person } from 'react-icons/io5';
-import { AtSignIcon as Contact } from '@chakra-ui/icons';
-import {
-  MdWork as Work,
-  MdLaptopMac as Mac,
-} from 'react-icons/md';
 import { SunIcon as Sun, MoonIcon as Moon } from '@chakra-ui/icons';
 
 // Utilities
@@ -26,7 +19,7 @@ const NavMenu = ({ nav }) => {
   const { colorMode, toggleColorMode } = useColorMode();
 
   return (
-    <Menu>
+    <Menu zIndex={10}>
       <MenuButton
         as={IconButton}
         aria-label='Navigation'
@@ -39,6 +32,7 @@ const NavMenu = ({ nav }) => {
             key={item.text}
             icon={item.icon}
             onClick={() => router.push(item.route)}
+            zIndex={10}
           >
             {item.text}
           </MenuItem>

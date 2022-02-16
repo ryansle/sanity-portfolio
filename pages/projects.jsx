@@ -9,6 +9,8 @@ import ProjectSection from '../components/Projects/ProjectSection';
 import { useQuery } from 'react-query';
 import { fetchProjects } from '../data/fetch';
 
+// TODO: Search bar
+// TODO: Selectors for viewing only specific projects
 const Projects = () => {
   const { data: projects } = useQuery('projects', fetchProjects);
 
