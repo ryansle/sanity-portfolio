@@ -5,12 +5,12 @@ import {
   Thead,
   Tbody,
   Th,
-  Tr,
   TableCaption,
   useMediaQuery,
 } from '@chakra-ui/react';
 import SkillRow from './SkillRow';
 
+// TODO: sortable by confidence row?
 const SkillTable = ({ caption, skills }) => {
   const [isMobileScreen] = useMediaQuery('(max-width: 1200px)');
 

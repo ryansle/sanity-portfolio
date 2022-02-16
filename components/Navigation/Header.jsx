@@ -27,6 +27,7 @@ import { SunIcon as Sun, MoonIcon as Moon } from '@chakra-ui/icons';
 import { useRouter } from 'next/router';
 
 // TODO: Selection indicator
+// TODO: Revise component structure, fix trailing space on IconButton
 const Header = ({ enableTransition }) => {
   const router = useRouter();
   const { colorMode, toggleColorMode } = useColorMode();

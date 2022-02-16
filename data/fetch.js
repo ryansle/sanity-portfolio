@@ -35,7 +35,10 @@ const fetchProjects = async () => {
     title,
     summary,
     'imageUrl': image.asset->url,
-    'techStack': stack[]->technology,
+    'techStack': stack[]-> { technology, 'iconUrl': icon.asset->url },
+    github, 
+    link,
+    category
   }`);
 
   return data;
