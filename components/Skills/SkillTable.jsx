@@ -26,16 +26,24 @@ const SkillTable = ({ caption, skills }) => {
           {caption}
         </TableCaption>
         <Thead>
-          <Th>Technology</Th>
-          {!isMobileScreen && <Th>Experiences</Th>}
-          <Th>Confidence</Th>
+          <Th width={['75%', '20%']}>
+            Technology
+          </Th>
+          {!isMobileScreen && (
+            <Th width='70%'>
+              Experiences
+            </Th>
+          )}
+          <Th width={['25%', '10%']}>
+            Confidence
+          </Th>
         </Thead>
         <Tbody>
           {skills?.map((skill) => (
             <SkillRow
               key={skill.technology}
               imageUrl={skill.imageUrl}
-              radii={true}
+              radii={skill.radii}
               name={skill.technology}
               experiences={skill.experiences}
               confidence={skill.confidence}

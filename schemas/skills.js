@@ -44,6 +44,13 @@ export default {
       },
       validation: (Rule) => Rule.required(),
     },
+    {
+      name: 'radii',
+      title: 'Radii',
+      type: 'boolean',
+      description: 'Display icon image within a circle?',
+      validation: (Rule) => Rule.required(),
+    },
   ],
   preview: {
     select: {

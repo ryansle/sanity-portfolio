@@ -24,6 +24,7 @@ const fetchSkills = async () => {
     experiences,
     confidence,
     category,
+    radii,
   }`);
 
   return data;

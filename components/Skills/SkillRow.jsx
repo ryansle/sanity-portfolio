@@ -9,6 +9,7 @@ import {
   useMediaQuery
 } from '@chakra-ui/react';
 import { StarIcon as Star } from '@chakra-ui/icons';
+import CompanyTag from '../CompanyTag';
 
 const SkillRow = ({ imageUrl, radii, name, experiences, confidence }) => {
   const activeStarColor = useColorModeValue('teal.500', 'teal.300');
@@ -35,8 +36,8 @@ const SkillRow = ({ imageUrl, radii, name, experiences, confidence }) => {
       {!isMobileScreen && (
         <Td>
           <Text fontSize='md'>
-            {experiences.map((experience, index) => (
-              index !== experiences.length - 1 ? `${experience}, ` : `${experience}`
+            {experiences.map((experience) => (
+              <CompanyTag content={experience} />
             ))}
           </Text>
         </Td>
