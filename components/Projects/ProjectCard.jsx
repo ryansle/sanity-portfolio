@@ -12,10 +12,8 @@ import {
 } from '@chakra-ui/react';
 import { AiFillGithub as GitHub } from 'react-icons/ai';
 import { ExternalLinkIcon as ExternalLink } from '@chakra-ui/icons';
+import SkillTag from '../SkillTag';
 
-// TODO: Skill tags
-// TODO: images
-// TODO: consistent ordering on skills
 const ProjectCard = ({ project }) => {
   const {
     title,
@@ -32,9 +30,9 @@ const ProjectCard = ({ project }) => {
     <Box
       borderWidth='1px'
       borderRadius={10}
-      height={['full', '450px']}
+      height={['full', 'full']}
       width='full'
-      maxHeight='500px'
+      maxHeight='1000px'
       bg={bgColor}
     >
       <Image
@@ -44,16 +42,18 @@ const ProjectCard = ({ project }) => {
         width='auto'
         objectFit='cover'
       />
-      <Box p={5}>
+      <Box p={5} borderTopWidth='1px'>
         <Flex justify='space-between' align='center'>
-          <Heading fontSize='display3'>
-            {title}
-          </Heading>
-          {subtitle && (
-            <Heading>
-              {subtitle}
+          <Box>
+            <Heading fontSize='display3'>
+              {title}
             </Heading>
-          )}
+            {subtitle && (
+              <Heading fontSize='sm' mt={1}>
+                {subtitle}
+              </Heading>
+            )}
+          </Box>
 
           <HStack>
             {github && (
@@ -71,6 +71,17 @@ const ProjectCard = ({ project }) => {
             )}
           </HStack>
         </Flex>
+
+        <Box mt={2}>
+          {techStack.map((tech) => (
+            <SkillTag
+              key={tech.technology}
+              name={tech.technology}
+              icon={tech.iconUrl}
+              radii={tech.radii}
+            />
+          ))}
+        </Box>
 
         <Divider my={3} />
 

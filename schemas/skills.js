@@ -51,6 +51,13 @@ export default {
       description: 'Display icon image within a circle?',
       validation: (Rule) => Rule.required(),
     },
+    {
+      name: 'visible',
+      title: 'Visibility',
+      type: 'boolean',
+      description: 'Do you want this item shown within the /skills section of the site?',
+      validation: (rule) => rule.required(),
+    },
   ],
   preview: {
     select: {
@@ -59,6 +66,3 @@ export default {
     },
   },
 };
-
-// TODO: visiblility tag
-// TODO: add data for skills I don't use regularly, but want displayed on old projects

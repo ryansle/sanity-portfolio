@@ -13,7 +13,6 @@ import {
 import { MdSettings as Gear } from 'react-icons/md';
 
 // TODO: Tech Stack tags
-// TODO: Further delay slides so images can load fully
 // TODO: consistent ordering on skills
 const WorkExperience = ({ data }) => {
   const {

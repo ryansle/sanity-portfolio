@@ -25,6 +25,7 @@ const fetchSkills = async () => {
     confidence,
     category,
     radii,
+    visible,
   }`);
 
   return data;
@@ -33,9 +34,10 @@ const fetchSkills = async () => {
 const fetchProjects = async () => {
   const data = await sanityClient.fetch(`*[_type == 'projects'] {
     title,
+    subtitle,
     summary,
     'imageUrl': image.asset->url,
-    'techStack': stack[]-> { technology, 'iconUrl': icon.asset->url },
+    'techStack': stack[]-> { technology, 'iconUrl': icon.asset->url, radii },
     github, 
     link,
     category

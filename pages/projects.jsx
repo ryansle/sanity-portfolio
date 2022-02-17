@@ -36,7 +36,7 @@ const Projects = () => {
 
       <ProjectSection
         title='Personal Projects'
-        description="Things I've built on my own time, just for me."
+        description="Things I've built on my own time, just for fun."
         projects={personal}
       />
 

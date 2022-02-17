@@ -19,9 +19,9 @@ const Skills = () => {
 
   useEffect(() => {
     if (skills) {
-      setWeb(skills.filter((skill) => skill.category === 'webdev'));
-      setOther(skills.filter((skill) => skill.category === 'other'));
-      setRandom(skills.filter((skill) => skill.category === 'random'));
+      setWeb(skills.filter((skill) => skill.category === 'webdev' && skill.visible));
+      setOther(skills.filter((skill) => skill.category === 'other' && skill.visible));
+      setRandom(skills.filter((skill) => skill.category === 'random' && skill.visible));
     }
   }, [skills]);
 
