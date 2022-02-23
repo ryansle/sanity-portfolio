@@ -89,15 +89,10 @@ const Header = ({ enableTransition }) => {
             </Heading>
           </Box>
 
-          {isMobileScreen ? (
-            <Box align='right'>
-              <NavMenu nav={nav} />
-            </Box>
-          ) : (
-            <>
+          {!isMobileScreen && (
+            <Box width={['none', '70%']}>
               <Center
                 display='flex'
-                width='70%'
                 alignItems='center'
               >
                 {nav.map((button) => (
@@ -112,18 +107,24 @@ const Header = ({ enableTransition }) => {
                   </Button>
                 ))}
               </Center>
-
-              <Box align='right' width='15%'>
-                <IconButton
-                  variant='ghost'
-                  fontSize='20px'
-                  icon={colorMode === 'light' ? <Moon /> : <Sun />}
-                  onClick={toggleColorMode}
-
-                />
-              </Box>
-            </>
+            </Box>
           )}
+
+          <Box
+            width={['full', '15%']}
+            align='right'
+          >
+            {isMobileScreen ? (
+              <NavMenu nav={nav} />
+            ) : (
+              <IconButton
+                variant='ghost'
+                fontSize='20px'
+                icon={colorMode === 'light' ? <Moon /> : <Sun />}
+                onClick={toggleColorMode}
+              />
+            )}
+          </Box>
         </Flex>
       </Box>
     </Slide>
