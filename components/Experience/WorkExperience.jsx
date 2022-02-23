@@ -11,9 +11,8 @@ import {
   useColorModeValue
 } from '@chakra-ui/react';
 import { MdSettings as Gear } from 'react-icons/md';
+import SkillTag from '../SkillTag';
 
-// TODO: Tech Stack tags
-// TODO: consistent ordering on skills
 const WorkExperience = ({ data }) => {
   const {
     company,
@@ -73,6 +72,19 @@ const WorkExperience = ({ data }) => {
               </ListItem>
             ))}
           </List>
+
+          {techStack && (
+            <Box mt={5}>
+              {techStack?.map((tech) => (
+                <SkillTag
+                  key={tech.technology}
+                  name={tech.technology}
+                  icon={tech.iconUrl}
+                  radii={tech.radii}
+                />
+              ))}
+            </Box>
+          )}
         </Box>
 
         <Box width={['100%', '35%']}>
@@ -82,8 +94,8 @@ const WorkExperience = ({ data }) => {
             my={[10, 0]}
           />
         </Box>
-      </Flex >
-    </Box >
+      </Flex>
+    </Box>
   );
 };
 

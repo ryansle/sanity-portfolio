@@ -29,6 +29,7 @@ const CompanyTag = ({ content }) => {
       mr={1}
       p={1}
       colorScheme={renderColorScheme(content)}
+      mb={1}
     >
       {content}
     </Badge>

@@ -26,15 +26,15 @@ const SkillTable = ({ caption, skills }) => {
           {caption}
         </TableCaption>
         <Thead>
-          <Th width={['75%', '20%']}>
+          <Th width={['40%', '20%']}>
             Technology
           </Th>
           {!isMobileScreen && (
-            <Th width='70%'>
+            <Th width='60%'>
               Experiences
             </Th>
           )}
-          <Th width={['25%', '10%']}>
+          <Th width={['10%', '20%']}>
             Confidence
           </Th>
         </Thead>
