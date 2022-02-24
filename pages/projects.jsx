@@ -1,9 +1,10 @@
 import { useState, useEffect } from 'react';
 
 // Components
-import { Heading, Text, Divider } from '@chakra-ui/react';
+import { Heading } from '@chakra-ui/react';
 import AppNavigation from '../components/Navigation/AppNavigation';
 import ProjectSection from '../components/Projects/ProjectSection';
+import Loader from '../components/Loader';
 
 // Utilities
 import { useQuery } from 'react-query';
@@ -12,7 +13,7 @@ import { fetchProjects } from '../data/fetch';
 // TODO: Search bar
 // TODO: Selectors for viewing only specific projects
 const Projects = () => {
-  const { data: projects } = useQuery('projects', fetchProjects);
+  const { data: projects, isLoading } = useQuery('projects', fetchProjects);
 
   const [school, setSchool] = useState([]);
   const [work, setWork] = useState([]);
@@ -34,31 +35,41 @@ const Projects = () => {
         Projects
       </Heading>
 
-      <ProjectSection
-        title='Personal Projects'
-        description="Things I've built on my own time, just for fun."
-        projects={personal}
-      />
 
-      <ProjectSection
-        title='Work Projects'
-        description="Projects I've worked on in industry that I'm allowed to talk about."
-        projects={work}
-      />
+      {isLoading && (
+        <Loader text='Loading projects, just a moment!' />
+      )}
 
-      <ProjectSection
-        title='Freelance Projects'
-        description='Things I worked on as freelance opportunities.'
-        projects={freelance}
-      />
+      {!isLoading && (
+        <>
+          <ProjectSection
+            title='Personal Projects'
+            description="Things I've built on my own time, just for fun."
+            projects={personal}
+          />
 
-      <ProjectSection
-        title='School Projects'
-        description="Projects I've worked on throughout my college career for a grade."
-        projects={school}
-      />
+          <ProjectSection
+            title='Work Projects'
+            description="Projects I've worked on in industry that I'm allowed to talk about."
+            projects={work}
+          />
 
-    </AppNavigation>
+          <ProjectSection
+            title='Freelance Projects'
+            description='Things I worked on as freelance opportunities.'
+            projects={freelance}
+          />
+
+          <ProjectSection
+            title='School Projects'
+            description="Projects I've worked on throughout my college career for a grade."
+            projects={school}
+          />
+        </>
+      )}
+
+
+    </AppNavigation >
   );
 };
 

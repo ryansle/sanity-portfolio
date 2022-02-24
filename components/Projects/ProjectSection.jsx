@@ -16,7 +16,7 @@ const ProjectSection = ({ title, description, projects }) => {
           <ScaleFade
             initialScale={0.9}
             in={true}
-            transition={{ enter: { duration: 1, delay: (index / 1.7) - 0.25 } }}
+            transition={{ enter: { duration: 1, delay: (index / 1.7) - 0.20 } }}
           >
             <ProjectCard
               key={project.title}
