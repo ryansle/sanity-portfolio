@@ -26,7 +26,6 @@ import { SunIcon as Sun, MoonIcon as Moon } from '@chakra-ui/icons';
 import { useRouter } from 'next/router';
 import useMediaQuery from '../../hooks/useMediaQuery';
 
-// TODO: Selection indicator
 // TODO: fix z-indexing of buttons with icons
 // TODO: Fix z-indexing of dividers
 const Header = ({ enableTransition }) => {
@@ -37,6 +36,7 @@ const Header = ({ enableTransition }) => {
   // Styles
   const background = useColorModeValue('white', 'gray.700');
   const borderColor = useColorModeValue('gray.400', '');
+  const buttonColor = useColorModeValue('teal.500', 'teal.300');
 
   const nav = [
     { icon: <Home />, text: 'Home', route: '/' },
@@ -101,6 +101,10 @@ const Header = ({ enableTransition }) => {
                   mx='10px'
                   variant='ghost'
                   onClick={() => router.push(button.route)}
+                  color={router.pathname === button.route ? buttonColor : ''}
+                  borderBottomWidth={router.pathname === button.route ? '2px' : ''}
+                  borderBottomColor={router.pathname === button.route ? buttonColor : ''}
+                  fontWeight={router.pathname === button.route ? 'bold' : '600'}
                 >
                   {button.text}
                 </Button>
