@@ -18,9 +18,12 @@ import { FaSpotify as Spotify } from 'react-icons/fa';
 // Utilities
 import { fetchSocialMedia } from '../data/fetch';
 import { useQuery } from 'react-query';
+import { useRouter } from 'next/router';
 
+// TODO: color glitch
 const SocialMedia = ({ title, }) => {
   const { data: socials, isLoading } = useQuery('socials', fetchSocialMedia);
+  const router = useRouter();
 
   // Styles
   const flavorColor = useColorModeValue('#309795', '#4FD1C');
@@ -69,6 +72,7 @@ const SocialMedia = ({ title, }) => {
             <Button
               key={item.platform}
               leftIcon={renderIcon(item.platform)}
+              onClick={() => router.push(item.link)}
             >
               {item.platform}
             </Button>

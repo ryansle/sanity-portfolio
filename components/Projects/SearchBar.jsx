@@ -5,12 +5,8 @@ import {
   InputLeftElement,
   Input,
   InputRightElement,
-  Button
 } from '@chakra-ui/react';
-import {
-  TriangleDownIcon as Triangle,
-  SearchIcon as Search,
-} from '@chakra-ui/icons';
+import { SearchIcon as Search } from '@chakra-ui/icons';
 import { IoIosCloseCircle as Close } from 'react-icons/io';
 
 const SearchBar = ({ setSearchTerm }) => {
@@ -27,7 +23,7 @@ const SearchBar = ({ setSearchTerm }) => {
           children={<Search color='gray.600' />}
         />
         <Input
-          placeholder='Search projects...'
+          placeholder='Search all projects...'
           variant='dark'
           onChange={updateSearchTerm}
         />
@@ -36,13 +32,6 @@ const SearchBar = ({ setSearchTerm }) => {
           onClick={() => setSearchTerm('')}
         />
       </InputGroup>
-
-      {/* <Button
-        px={5}
-        leftIcon={<Triangle />}
-      >
-        Filter Projects
-      </Button> */}
     </HStack>
   );
 };

@@ -11,7 +11,6 @@ import { useQuery } from 'react-query';
 import { fetchProjects } from '../data/fetch';
 import NoResults from '../components/Projects/NoResults';
 
-// TODO: Selectors for viewing only specific projects
 const Projects = () => {
   const { data: projects } = useQuery('projects', fetchProjects);
 

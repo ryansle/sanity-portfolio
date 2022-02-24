@@ -92,7 +92,7 @@ const Header = ({ enableTransition }) => {
             <Center
               display='flex'
               alignItems='center'
-              width={['0%', '70%']}
+              width={['50%', '70%']}
             >
               {nav.map((button) => (
                 <Button
