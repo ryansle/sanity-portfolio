@@ -7,7 +7,6 @@ import {
   Button,
   Image,
   IconButton,
-  useMediaQuery,
   useColorMode,
   Center,
   useColorModeValue,
@@ -25,15 +24,15 @@ import { SunIcon as Sun, MoonIcon as Moon } from '@chakra-ui/icons';
 
 // Utilities
 import { useRouter } from 'next/router';
+import useMediaQuery from '../../hooks/useMediaQuery';
 
 // TODO: Selection indicator
-// TODO: Revise component structure, fix trailing space on IconButton
 // TODO: fix z-indexing of buttons with icons
 // TODO: Fix z-indexing of dividers
 const Header = ({ enableTransition }) => {
   const router = useRouter();
   const { colorMode, toggleColorMode } = useColorMode();
-  const [isMobileScreen] = useMediaQuery('(max-width: 1200px)');
+  const isDesktopScreen = useMediaQuery(1200);
 
   // Styles
   const background = useColorModeValue('white', 'gray.700');
@@ -74,7 +73,7 @@ const Header = ({ enableTransition }) => {
           <Box
             display='flex'
             alignItems='center'
-            width={['full', '15%']}
+            width={['50%', '15%']}
             onClick={() => router.push('/')}
             cursor='pointer'
           >
@@ -89,32 +88,32 @@ const Header = ({ enableTransition }) => {
             </Heading>
           </Box>
 
-          {!isMobileScreen && (
-            <Box width={['none', '70%']}>
-              <Center
-                display='flex'
-                alignItems='center'
-              >
-                {nav.map((button) => (
-                  <Button
-                    key={button.text}
-                    leftIcon={button.icon}
-                    mx='10px'
-                    variant='ghost'
-                    onClick={() => router.push(button.route)}
-                  >
-                    {button.text}
-                  </Button>
-                ))}
-              </Center>
-            </Box>
+          {isDesktopScreen && (
+            <Center
+              display='flex'
+              alignItems='center'
+              width={['0%', '70%']}
+            >
+              {nav.map((button) => (
+                <Button
+                  key={button.text}
+                  leftIcon={button.icon}
+                  mx='10px'
+                  variant='ghost'
+                  onClick={() => router.push(button.route)}
+                >
+                  {button.text}
+                </Button>
+              ))}
+            </Center>
           )}
 
           <Box
-            width={['full', '15%']}
+            width={['50%', '15%']}
             align='right'
+            alignItems='center'
           >
-            {isMobileScreen ? (
+            {!isDesktopScreen ? (
               <NavMenu nav={nav} />
             ) : (
               <IconButton
@@ -126,8 +125,8 @@ const Header = ({ enableTransition }) => {
             )}
           </Box>
         </Flex>
-      </Box>
-    </Slide>
+      </Box >
+    </Slide >
   );
 };
 
