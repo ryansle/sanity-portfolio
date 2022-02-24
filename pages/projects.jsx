@@ -4,21 +4,26 @@ import { useState, useEffect } from 'react';
 import { Heading } from '@chakra-ui/react';
 import AppNavigation from '../components/Navigation/AppNavigation';
 import ProjectSection from '../components/Projects/ProjectSection';
-import Loader from '../components/Loader';
+import SearchBar from '../components/Projects/SearchBar';
 
 // Utilities
 import { useQuery } from 'react-query';
 import { fetchProjects } from '../data/fetch';
+import NoResults from '../components/Projects/NoResults';
 
-// TODO: Search bar
 // TODO: Selectors for viewing only specific projects
 const Projects = () => {
-  const { data: projects, isLoading } = useQuery('projects', fetchProjects);
+  const { data: projects } = useQuery('projects', fetchProjects);
 
+  // Projects
   const [school, setSchool] = useState([]);
   const [work, setWork] = useState([]);
   const [personal, setPersonal] = useState([]);
   const [freelance, setFreelance] = useState([]);
+
+  // Search
+  const [searchTerm, setSearchTerm] = useState('');
+  const [filteredProjects, setFilteredProjects] = useState([]);
 
   useEffect(() => {
     if (projects) {
@@ -29,18 +34,27 @@ const Projects = () => {
     }
   }, [projects]);
 
+  useEffect(() => {
+    if (searchTerm !== '') {
+      const normalizedSearchTerm = searchTerm.toLowerCase();
+      const filtered = projects?.filter((project) => project.title.toLowerCase().includes(normalizedSearchTerm));
+      setFilteredProjects(filtered);
+    } else {
+      setFilteredProjects([]);
+    }
+  }, [searchTerm]);
+
   return (
     <AppNavigation>
       <Heading size='2xl' mb={5}>
         Projects
       </Heading>
 
+      <SearchBar
+        setSearchTerm={setSearchTerm}
+      />
 
-      {isLoading && (
-        <Loader text='Loading projects, just a moment!' />
-      )}
-
-      {!isLoading && (
+      {searchTerm === '' && (
         <>
           <ProjectSection
             title='Personal Projects'
@@ -68,8 +82,20 @@ const Projects = () => {
         </>
       )}
 
+      {searchTerm !== '' && (
+        <>
+          <ProjectSection
+            title={filteredProjects.length === 0 ? '' : 'Project Results'}
+            description={filteredProjects.length === 0 ? '' : 'Projects that match your search query.'}
+            projects={filteredProjects}
+          />
 
-    </AppNavigation >
+          {filteredProjects.length === 0 && (
+            <NoResults />
+          )}
+        </>
+      )}
+    </AppNavigation>
   );
 };
 

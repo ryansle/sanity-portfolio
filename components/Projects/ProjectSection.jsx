@@ -26,7 +26,7 @@ const ProjectSection = ({ title, description, projects }) => {
         ))}
       </SimpleGrid>
 
-      <Divider my={10} />
+      {projects.length !== 0 && <Divider my={10} />}
     </Box>
   );
 };
