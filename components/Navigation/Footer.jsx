@@ -16,7 +16,11 @@ import { useRouter } from 'next/router';
 const Footer = () => {
   const { data: socials } = useQuery('socials', fetchSocialMedia);
   const router = useRouter();
+
+  // Styles
   const flavorText = useColorModeValue('teal.500', 'teal.300');
+  const background = useColorModeValue('gray.200', 'gray.800');
+  const borderColor = useColorModeValue('gray.400', '');
 
   const renderSocial = (platform) => {
     switch (platform) {
@@ -38,8 +42,9 @@ const Footer = () => {
       as='footer'
       align='center'
       py='50px'
-      mt='100px'
+      bg={background}
       borderTopWidth='1px'
+      borderTopColor={borderColor}
     >
       <Box>
         <Center mb={3}>

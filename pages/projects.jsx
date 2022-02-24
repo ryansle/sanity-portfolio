@@ -5,6 +5,7 @@ import { Heading } from '@chakra-ui/react';
 import AppNavigation from '../components/Navigation/AppNavigation';
 import ProjectSection from '../components/Projects/ProjectSection';
 import SearchBar from '../components/Projects/SearchBar';
+import Head from 'next/head';
 
 // Utilities
 import { useQuery } from 'react-query';
@@ -45,6 +46,15 @@ const Projects = () => {
 
   return (
     <AppNavigation>
+      <Head>
+        <title>Ryan Le - Projects</title>
+        <meta
+          name='description'
+          content='Read about my previous works and personal projects.'
+        />
+        <meta property='og:image' content='https://i.imgur.com/jyYmCzt.jpg' />
+      </Head>
+
       <Heading size='2xl' mb={5}>
         Projects
       </Heading>

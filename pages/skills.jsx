@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import { Heading, Text, SlideFade } from '@chakra-ui/react';
 import AppNavigation from '../components/Navigation/AppNavigation';
 import Blurb from '../components/Skills/Blurb';
+import Head from 'next/head';
 
 // Utilities
 import { fetchSkills } from '../data/fetch';
@@ -27,6 +28,15 @@ const Skills = () => {
 
   return (
     <AppNavigation>
+      <Head>
+        <title>Ryan Le - Skills</title>
+        <meta
+          name='description'
+          content="Learn where I'm skilled and how I can leverage those skills at your company."
+        />
+        <meta property='og:image' content='https://i.imgur.com/jyYmCzt.jpg' />
+      </Head>
+
       <Blurb />
       <SlideFade
         direction='top'
