@@ -26,8 +26,6 @@ import { SunIcon as Sun, MoonIcon as Moon } from '@chakra-ui/icons';
 import { useRouter } from 'next/router';
 import useMediaQuery from '../../hooks/useMediaQuery';
 
-// TODO: fix z-indexing of buttons with icons
-// TODO: Fix z-indexing of dividers
 const Header = ({ enableTransition }) => {
   const router = useRouter();
   const { colorMode, toggleColorMode } = useColorMode();
@@ -48,89 +46,95 @@ const Header = ({ enableTransition }) => {
   ];
 
   return (
-    <Slide
-      direction='top'
-      in={true}
-      transition={
-        enableTransition
-          ? { enter: { duration: 0.75, delay: 0.01 } }
-          : { enter: { duration: 0, delay: 0 } }
-      }
+    <Box
+      pos='fixed'
+      top={0}
+      left={0}
+      zIndex={10}
     >
-      <Box
-        zIndex={4}
-        bg={background}
-        width='full'
-        borderBottomWidth='1px'
-        borderBottomColor={borderColor}
-        px={['20px', '120px']}
-        py={['12px', '20px']}
+      <Slide
+        direction='top'
+        in={true}
+        transition={
+          enableTransition
+            ? { enter: { duration: 0.75, delay: 0.01 } }
+            : { enter: { duration: 0, delay: 0 } }
+        }
       >
-        <Flex
-          justify='space-between'
-          align='center'
+        <Box
+          bg={background}
+          width='full'
+          borderBottomWidth='1px'
+          borderBottomColor={borderColor}
+          px={['20px', '120px']}
+          py={['12px', '20px']}
         >
-          <Box
-            display='flex'
-            alignItems='center'
-            width={['50%', '15%']}
-            onClick={() => router.push('/')}
-            cursor='pointer'
+          <Flex
+            justify='space-between'
+            align='center'
           >
-            <Image
-              src='https://i.imgur.com/G2OKPI4.png'
-              width='50px'
-              mr={5}
-              borderRadius='full'
-            />
-            <Heading size='md'>
-              RYAN S. LE
-            </Heading>
-          </Box>
-
-          {isDesktopScreen && (
-            <Center
+            <Box
               display='flex'
               alignItems='center'
-              width={['50%', '70%']}
+              width={['50%', '15%']}
+              onClick={() => router.push('/')}
+              cursor='pointer'
             >
-              {nav.map((button) => (
-                <Button
-                  key={button.text}
-                  leftIcon={button.icon}
-                  mx='10px'
-                  variant='ghost'
-                  onClick={() => router.push(button.route)}
-                  color={router.pathname === button.route ? buttonColor : ''}
-                  borderBottomWidth={router.pathname === button.route ? '2px' : ''}
-                  borderBottomColor={router.pathname === button.route ? buttonColor : ''}
-                  fontWeight={router.pathname === button.route ? 'bold' : '600'}
-                >
-                  {button.text}
-                </Button>
-              ))}
-            </Center>
-          )}
-
-          <Box
-            width={['50%', '15%']}
-            align='right'
-            alignItems='center'
-          >
-            {!isDesktopScreen ? (
-              <NavMenu nav={nav} />
-            ) : (
-              <IconButton
-                variant='ghost'
-                fontSize='20px'
-                icon={colorMode === 'light' ? <Moon /> : <Sun />}
-                onClick={toggleColorMode}
+              <Image
+                src='https://i.imgur.com/G2OKPI4.png'
+                width='50px'
+                mr={5}
+                borderRadius='full'
               />
+              <Heading size='md'>
+                RYAN S. LE
+              </Heading>
+            </Box>
+
+            {isDesktopScreen && (
+              <Center
+                display='flex'
+                alignItems='center'
+                width={['50%', '70%']}
+              >
+                {nav.map((button) => (
+                  <Button
+                    key={button.text}
+                    leftIcon={button.icon}
+                    mx='10px'
+                    variant='ghost'
+                    onClick={() => router.push(button.route)}
+                    color={router.pathname === button.route ? buttonColor : ''}
+                    borderBottomWidth={router.pathname === button.route ? '2px' : ''}
+                    borderBottomColor={router.pathname === button.route ? buttonColor : ''}
+                    fontWeight={router.pathname === button.route ? 'bold' : '600'}
+                  >
+                    {button.text}
+                  </Button>
+                ))}
+              </Center>
             )}
-          </Box>
-        </Flex>
-      </Box >
-    </Slide >
+
+            <Box
+              width={['50%', '15%']}
+              align='right'
+              alignItems='center'
+            >
+              {!isDesktopScreen ? (
+                <NavMenu nav={nav} />
+              ) : (
+                <IconButton
+                  variant='ghost'
+                  fontSize='20px'
+                  icon={colorMode === 'light' ? <Moon /> : <Sun />}
+                  onClick={toggleColorMode}
+                />
+              )}
+            </Box>
+          </Flex>
+        </Box>
+      </Slide>
+    </Box>
   );
 };
 
