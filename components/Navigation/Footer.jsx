@@ -50,6 +50,7 @@ const Footer = () => {
         <Center mb={3}>
           {socials?.map((item) => (
             <Icon
+              key={item.platform}
               color={flavorText}
               as={renderSocial(item.platform)}
               _hover={{

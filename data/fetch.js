@@ -63,10 +63,22 @@ const fetchAccomplishments = async () => {
   return data;
 };
 
+const fetchReferrals = async () => {
+  const data = await sanityClient.fetch(`*[_type == 'referral'] {
+    name,
+    title,
+    'imageUrl': avatar.asset->url,
+    referral,
+  }`);
+
+  return data;
+};
+
 export {
   fetchExperience,
   fetchSkills,
   fetchProjects,
   fetchSocialMedia,
   fetchAccomplishments,
+  fetchReferrals,
 };
