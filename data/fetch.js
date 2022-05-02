@@ -28,7 +28,7 @@ const fetchSkills = async () => {
     visible,
   }`);
 
-  return data;
+  return data.sort((a, b) => a.confidence > b.confidence ? -1 : 1);
 };
 
 const fetchProjects = async () => {
