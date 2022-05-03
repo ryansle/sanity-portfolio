@@ -14,6 +14,7 @@ import SocialMedia from '../SocialMedia';
 
 const Introduction = () => {
   const flavorText = useColorModeValue('teal.500', 'teal.300');
+  const textColor = useColorModeValue('black', 'gray');
 
   return (
     <Box>
@@ -47,13 +48,13 @@ const Introduction = () => {
             </Text>
 
             <Stack mt={10}>
-              <Text color='gray'>
+              <Text color={textColor}>
                 🚀 &nbsp; Exploring opportunities, side projects, freelancing and more.
               </Text>
-              <Text color='gray'>
+              <Text color={textColor}>
                 🎓 &nbsp; University of Nebraska-Lincoln Alumni. Degree in Software Engineering.
               </Text>
-              <Text color='gray'>
+              <Text color={textColor}>
                 🏙️  &nbsp; Currently based out of New York City.
               </Text>
 

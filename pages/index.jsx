@@ -2,7 +2,7 @@
 import { Divider } from '@chakra-ui/react';
 import AppNavigation from '../components/Navigation/AppNavigation';
 import Introduction from '../components/Home/Introduction';
-import Readiness from '../components/Home/Readiness';
+import Freelance from '../components/Home/Freelance';
 import References from '../components/Home/References';
 import Head from 'next/head';
 
@@ -19,9 +19,9 @@ const Home = () => {
       </Head>
 
       <Introduction />
-      <Divider my={['50px', '100px']} />
-      <Readiness />
-      <Divider my={['50px', '100px']} />
+      <Divider my={['50px', '70px']} />
+      <Freelance />
+      <Divider my={['50px', '70px']} />
       <References />
     </AppNavigation>
   );

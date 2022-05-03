@@ -18,8 +18,8 @@ const References = () => {
       </Heading>
 
       <Grid
-        templateRows={['repeat(1, 1fr)', 'repeat(2, 1fr)', 'repeat(2, 1fr)']}
-        templateColumns={['repeat(1, 1fr)', 'repeat(2, 1fr)', 'repeat(2, 1fr)']}
+        templateRows={['repeat(1, 1fr)', 'repeat(1, 1fr)', 'repeat(2, 1fr)']}
+        templateColumns={['repeat(1, 1fr)', 'repeat(1, 1fr)', 'repeat(2, 1fr)']}
         gap={5}
       >
         {data?.map((ref) => (

@@ -19,7 +19,7 @@ const Footer = () => {
 
   // Styles
   const flavorText = useColorModeValue('teal.500', 'teal.300');
-  const background = useColorModeValue('gray.200', 'gray.800');
+  const background = useColorModeValue('white', 'gray.900');
   const borderColor = useColorModeValue('gray.400', '');
 
   const renderSocial = (platform) => {
@@ -68,7 +68,7 @@ const Footer = () => {
         <Text fontSize='md'>
           Designed and developed by Ryan Le.
         </Text>
-        <Text fontSize='md'>
+        <Text fontSize='md' px={10}>
           Hosted on <chakra.span color={flavorText} fontWeight='semibold'>Vercel.</chakra.span> Built with <chakra.span color={flavorText} fontWeight='semibold'>Chakra UI</chakra.span> components.
         </Text>
       </Box>
