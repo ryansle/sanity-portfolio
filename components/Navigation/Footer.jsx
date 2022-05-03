@@ -1,5 +1,5 @@
 // Components
-import { Center, Text, Box, chakra, Icon, useColorModeValue } from '@chakra-ui/react';
+import { Center, Text, Box, Link, Icon, useColorModeValue } from '@chakra-ui/react';
 import {
   AiFillInstagram as Instagram,
   AiFillGithub as GitHub,
@@ -69,7 +69,7 @@ const Footer = () => {
           Designed and developed by Ryan Le.
         </Text>
         <Text fontSize='md' px={10}>
-          Hosted on <chakra.span color={flavorText} fontWeight='semibold'>Vercel.</chakra.span> Built with <chakra.span color={flavorText} fontWeight='semibold'>Chakra UI</chakra.span> components.
+          Hosted on <Link color={flavorText} href='https://vercel.com/' fontWeight='semibold'>Vercel.</Link> Built with <Link color={flavorText} href='https://chakra-ui.com/' fontWeight='semibold'>Chakra UI</Link> components.
         </Text>
       </Box>
     </Center>
