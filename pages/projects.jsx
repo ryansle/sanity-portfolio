@@ -27,10 +27,10 @@ const Projects = () => {
 
   useEffect(() => {
     if (projects) {
-      setSchool(projects.filter((project) => project.category === 'school'));
-      setWork(projects.filter((project) => project.category === 'work'));
-      setPersonal(projects.filter((project) => project.category === 'personal'));
-      setFreelance(projects.filter((project) => project.category === 'freelance'));
+      setSchool(projects.filter((project) => project.category === 'school').sort((a, b) => a.loadOrder > b.loadOrder ? 1 : -1));
+      setWork(projects.filter((project) => project.category === 'work').sort((a, b) => a.loadOrder > b.loadOrder ? 1 : -1));
+      setPersonal(projects.filter((project) => project.category === 'personal').sort((a, b) => a.loadOrder > b.loadOrder ? 1 : -1));
+      setFreelance(projects.filter((project) => project.category === 'freelance').sort((a, b) => a.loadOrder > b.loadOrder ? 1 : -1));
     }
   }, [projects]);
 

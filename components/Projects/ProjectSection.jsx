@@ -12,7 +12,7 @@ import ProjectCard from './ProjectCard';
 
 const SkeletonLoader = () => (
   <Skeleton
-    height='480px'
+    height='260px'
     width='full'
     borderRadius={10}
     mb={3}

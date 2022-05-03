@@ -62,6 +62,13 @@ export default {
       },
       validation: (Rule) => Rule.required(),
     },
+    {
+      name: 'loadOrder',
+      title: 'Load Order',
+      type: 'number',
+      description: 'The order in which you want these items displayed.',
+      validation: (rule) => rule.required(),
+    }
   ],
   preview: {
     select: {

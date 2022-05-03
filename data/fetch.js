@@ -40,7 +40,8 @@ const fetchProjects = async () => {
     'techStack': stack[]-> { technology, 'iconUrl': icon.asset->url, radii },
     github, 
     link,
-    category
+    category,
+    loadOrder,
   }`);
 
   return data;
