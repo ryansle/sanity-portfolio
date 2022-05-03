@@ -1,34 +1,45 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-## Getting Started
+## Ryan Le's Sanity Portfolio
 
-First, run the development server:
+Welcome to the latest version of my personal portfolio site! This time around, I've reworked some of the kinks from my [previous iteration](https://github.com/ryansle/updated-portfolio) and brought in Sanity.io as my content management system!
 
-```bash
-npm run dev
-# or
-yarn dev
+As always, I felt that I've learned a fair amount since the last time I rebuilt my entire portfolio, and wanted my digital footprint to be more reflective of my abilities as an engineer. Enjoy!
+
+### [](https://github.com/ryansle/updated-portfolio#running-locally)Running Locally
+
+```
+$ git clone https://github.com/ryansle/sanity-portfolio.git
+$ cd sanity-portfolio
+
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Install npm packages
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+```
+npm i
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+```
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+Start up Next.js server and navigate to  `localhost:3000`
 
-## Learn More
+```
+npm run dev
 
-To learn more about Next.js, take a look at the following resources:
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### [](https://github.com/ryansle/updated-portfolio#motivation)Motivation
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+-   Redevelop my portfolio (again) now that continue to become more and more experienced
+-   Polish my portfolio project and give the site a facelift (by rebuilding from scratch!)
+-   Play around with a content management system (Sanity.io)
+-   Continuously improve my previous design and site content
+-   Just build something else using Chakra UI because it's fun
 
-## Deploy on Vercel
+### [](https://github.com/ryansle/updated-portfolio#technologies-used)Technologies Used
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+-   React.js as a front-end framework
+-   JavaScript as an implementation language
+-   Chakra UI for configurable, out-of-the-box React.js components
+-   Next.js for server-side rendering, routing, and more
+-   Sanity.io for content management
+-   Visual Studio Code as in the integrated development environment
