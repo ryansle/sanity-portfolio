@@ -1,3 +1,5 @@
+import { useRef } from 'react';
+
 // Components
 import {
   Menu,
@@ -7,6 +9,7 @@ import {
   MenuItem,
   MenuDivider,
   useColorMode,
+  useToast,
 } from '@chakra-ui/react';
 import { HamburgerIcon as Hamburger } from '@chakra-ui/icons';
 import { SunIcon as Sun, MoonIcon as Moon } from '@chakra-ui/icons';
@@ -17,6 +20,27 @@ import { useRouter } from 'next/router';
 const NavMenu = ({ nav }) => {
   const router = useRouter();
   const { colorMode, toggleColorMode } = useColorMode();
+
+  const toast = useToast();
+  const toastIdRef = useRef();
+
+  const showToast = () => {
+    toastIdRef.current = toast({
+      title: 'Color Mode Switched!',
+      description: 'By the way, the experience is better on dark mode 😉',
+      status: 'info',
+      duration: 5000,
+      isClosable: true,
+    });
+  };
+
+  const toggleMode = () => {
+    if (colorMode === 'dark') {
+      showToast();
+    }
+
+    toggleColorMode();
+  };
 
   return (
     <Menu zIndex={10}>
@@ -40,12 +64,12 @@ const NavMenu = ({ nav }) => {
         <MenuDivider />
         <MenuItem
           icon={colorMode === 'light' ? <Moon /> : <Sun />}
-          onClick={() => toggleColorMode()}
+          onClick={toggleMode}
         >
           {colorMode === 'light' ? 'Change to Dark Mode' : 'Change to Light Mode'}
         </MenuItem>
       </MenuList>
-    </Menu>
+    </Menu >
   );
 };
 

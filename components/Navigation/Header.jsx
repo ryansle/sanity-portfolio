@@ -1,3 +1,5 @@
+import { useRef } from 'react';
+
 // Components
 import {
   Box,
@@ -10,6 +12,7 @@ import {
   useColorMode,
   Center,
   useColorModeValue,
+  useToast,
 } from '@chakra-ui/react';
 import NavMenu from './NavMenu';
 import { AiFillHome as Home } from 'react-icons/ai';
@@ -31,6 +34,9 @@ const Header = ({ enableTransition }) => {
   const { colorMode, toggleColorMode } = useColorMode();
   const isDesktopScreen = useMediaQuery(1200);
 
+  const toast = useToast();
+  const toastIdRef = useRef();
+
   // Styles
   const background = useColorModeValue('white', 'gray.700');
   const borderColor = useColorModeValue('gray.400', '');
@@ -44,6 +50,24 @@ const Header = ({ enableTransition }) => {
     { icon: <Mac />, text: 'Projects', route: '/projects' },
     { icon: <Contact />, text: 'Contact', route: '/contact' },
   ];
+
+  const showToast = () => {
+    toastIdRef.current = toast({
+      title: 'Color Mode Switched!',
+      description: 'By the way, the experience is better on dark mode 😉',
+      status: 'info',
+      duration: 5000,
+      isClosable: true,
+    });
+  };
+
+  const toggleMode = () => {
+    if (colorMode === 'dark') {
+      showToast();
+    }
+
+    toggleColorMode();
+  };
 
   return (
     <Box
@@ -127,7 +151,7 @@ const Header = ({ enableTransition }) => {
                   variant='ghost'
                   fontSize='20px'
                   icon={colorMode === 'light' ? <Moon /> : <Sun />}
-                  onClick={toggleColorMode}
+                  onClick={toggleMode}
                 />
               )}
             </Box>

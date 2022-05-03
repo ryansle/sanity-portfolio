@@ -1,5 +1,5 @@
 // Components
-import { Box, Heading, Grid } from '@chakra-ui/react';
+import { Box, Heading, SimpleGrid } from '@chakra-ui/react';
 import Reference from './Reference';
 
 // Utilities
@@ -17,11 +17,7 @@ const References = () => {
         Professional References
       </Heading>
 
-      <Grid
-        templateRows={['repeat(1, 1fr)', 'repeat(1, 1fr)', 'repeat(2, 1fr)']}
-        templateColumns={['repeat(1, 1fr)', 'repeat(1, 1fr)', 'repeat(2, 1fr)']}
-        gap={5}
-      >
+      <SimpleGrid columns={{ sm: 1, md: 2 }} spacing={4}>
         {data?.map((ref) => (
           <Reference
             key={ref.name}
@@ -31,7 +27,7 @@ const References = () => {
             referral={ref.referral}
           />
         ))}
-      </Grid>
+      </SimpleGrid>
     </Box>
   );
 };
