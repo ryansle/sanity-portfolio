@@ -14,6 +14,9 @@ import { AiFillGithub as GitHub } from 'react-icons/ai';
 import { ExternalLinkIcon as ExternalLink } from '@chakra-ui/icons';
 import SkillTag from '../SkillTag';
 
+// Utilities
+import { useRouter } from 'next/router';
+
 const ProjectCard = ({ project }) => {
   const {
     title,
@@ -25,6 +28,8 @@ const ProjectCard = ({ project }) => {
     link,
   } = project;
   const bgColor = useColorModeValue('white', 'gray.900');
+
+  const router = useRouter();
 
   return (
     <Box
@@ -60,6 +65,7 @@ const ProjectCard = ({ project }) => {
               <IconButton
                 icon={<GitHub />}
                 variant='ghost'
+                onClick={() => router.push(github)}
               />
             )}
 
@@ -67,6 +73,7 @@ const ProjectCard = ({ project }) => {
               <IconButton
                 icon={<ExternalLink />}
                 variant='ghost'
+                onClick={() => router.push(link)}
               />
             )}
           </HStack>
