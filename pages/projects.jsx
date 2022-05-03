@@ -13,7 +13,7 @@ import { fetchProjects } from '../data/fetch';
 import NoResults from '../components/Projects/NoResults';
 
 const Projects = () => {
-  const { data: projects } = useQuery('projects', fetchProjects);
+  const { data: projects, isLoading } = useQuery('projects', fetchProjects);
 
   // Projects
   const [school, setSchool] = useState([]);
@@ -69,24 +69,28 @@ const Projects = () => {
             title='Personal Projects'
             description="Things I've built on my own time, just for fun."
             projects={personal}
+            isLoading={isLoading}
           />
 
           <ProjectSection
             title='Work Projects'
             description="Projects I've worked on in industry that I'm allowed to talk about."
             projects={work}
+            isLoading={isLoading}
           />
 
           <ProjectSection
             title='Freelance Projects'
             description='Things I worked on as freelance opportunities.'
             projects={freelance}
+            isLoading={isLoading}
           />
 
           <ProjectSection
             title='School Projects'
             description="Projects I've worked on throughout my college career for a grade."
             projects={school}
+            isLoading={isLoading}
           />
         </>
       )}
@@ -97,6 +101,7 @@ const Projects = () => {
             title={filteredProjects.length === 0 ? '' : 'Project Results'}
             description={filteredProjects.length === 0 ? '' : 'Projects that match your search query.'}
             projects={filteredProjects}
+            isLoading={isLoading}
           />
 
           {filteredProjects.length === 0 && (
