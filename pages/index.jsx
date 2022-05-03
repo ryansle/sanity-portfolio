@@ -6,6 +6,9 @@ import Freelance from '../components/Home/Freelance';
 import References from '../components/Home/References';
 import Head from 'next/head';
 
+// Utilities
+import SlideUpWhenVisible from '../hooks/SlideUpWhenVisible';
+
 const Home = () => {
   return (
     <AppNavigation enableTransition>
@@ -20,9 +23,13 @@ const Home = () => {
 
       <Introduction />
       <Divider my={['50px', '70px']} />
-      <Freelance />
+      <SlideUpWhenVisible>
+        <Freelance />
+      </SlideUpWhenVisible>
       <Divider my={['50px', '70px']} />
-      <References />
+      <SlideUpWhenVisible>
+        <References />
+      </SlideUpWhenVisible>
     </AppNavigation>
   );
 };

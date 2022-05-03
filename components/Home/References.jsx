@@ -7,12 +7,10 @@ import { fetchReferrals } from '../../data/fetch';
 import { useQuery } from 'react-query';
 
 const References = () => {
-  const { data, isLoading } = useQuery('referrals', fetchReferrals);
-
-  console.log(data);
+  const { data } = useQuery('referrals', fetchReferrals);
 
   return (
-    <Box>
+    <Box width='full'>
       <Heading fontSize='4xl' mb={5}>
         Professional References
       </Heading>
