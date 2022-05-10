@@ -11,7 +11,6 @@ const Reference = ({ imgPath, name, title, referral }) => {
       borderRadius={10}
       p={5}
       bg={bgColor}
-      height='full'
     >
       <Box display='flex' mb={3}>
         <Image

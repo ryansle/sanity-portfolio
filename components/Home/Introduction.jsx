@@ -65,7 +65,7 @@ const Introduction = () => {
 
         <Box
           width={['100%', '40%']}
-          align='right'
+          align={['center', 'right']}
           pr={[0, 0, 0, 10]}
         >
           <SlideFade
@@ -76,7 +76,7 @@ const Introduction = () => {
           >
             <Image
               src='https://i.imgur.com/TAchISX.jpg'
-              width={600}
+              width='full'
               height='auto'
               borderRadius={25}
               boxShadow='md'

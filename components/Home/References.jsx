@@ -1,5 +1,5 @@
 // Components
-import { Box, Heading, SimpleGrid } from '@chakra-ui/react';
+import { Box, Heading, SimpleGrid, Stack } from '@chakra-ui/react';
 import Reference from './Reference';
 
 // Utilities
@@ -15,16 +15,42 @@ const References = () => {
         Professional References
       </Heading>
 
-      <SimpleGrid columns={{ sm: 1, md: 2 }} spacing={4}>
-        {data?.map((ref) => (
-          <Reference
-            key={ref.name}
-            name={ref.name}
-            title={ref.title}
-            imgPath={ref.imageUrl}
-            referral={ref.referral}
-          />
-        ))}
+      <SimpleGrid columns={{ sm: 1, md: 2, lg: 3 }} spacing={4}>
+        <Stack spacing={4}>
+          {data?.slice(0, 2).map((ref) => (
+            <Reference
+              key={ref.name}
+              name={ref.name}
+              title={ref.title}
+              imgPath={ref.imageUrl}
+              referral={ref.referral}
+            />
+          ))}
+        </Stack>
+
+        <Stack spacing={4}>
+          {data?.slice(2, 3).map((ref) => (
+            <Reference
+              key={ref.name}
+              name={ref.name}
+              title={ref.title}
+              imgPath={ref.imageUrl}
+              referral={ref.referral}
+            />
+          ))}
+        </Stack>
+
+        <Stack spacing={4}>
+          {data?.slice(3, 10).map((ref) => (
+            <Reference
+              key={ref.name}
+              name={ref.name}
+              title={ref.title}
+              imgPath={ref.imageUrl}
+              referral={ref.referral}
+            />
+          ))}
+        </Stack>
       </SimpleGrid>
     </Box>
   );
