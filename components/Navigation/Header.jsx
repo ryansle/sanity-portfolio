@@ -129,8 +129,9 @@ const Header = ({ enableTransition }) => {
                     variant='ghost'
                     onClick={() => router.push(button.route)}
                     color={router.pathname === button.route ? buttonColor : ''}
-                    borderBottomWidth={router.pathname === button.route ? '2px' : ''}
+                    borderBottomWidth={router.pathname === button.route ? '4px' : ''}
                     borderBottomColor={router.pathname === button.route ? buttonColor : ''}
+                    borderBottomRadius={router.pathname === button.route ? 'none' : ''}
                     fontWeight={router.pathname === button.route ? 'bold' : '600'}
                   >
                     {button.text}

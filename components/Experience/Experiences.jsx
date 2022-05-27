@@ -1,12 +1,13 @@
 import { useState, useEffect } from 'react';
 
 // Components
-import { Box, Heading, Stack, Divider, SlideFade } from '@chakra-ui/react';
+import { Box, Heading, Stack, Divider } from '@chakra-ui/react';
 import WorkExperience from './WorkExperience';
 
 // Utilities
 import { useQuery } from 'react-query';
 import { fetchExperience } from '../../data/fetch';
+import SlideUpWhenVisible from '../../hooks/SlideUpWhenVisible';
 
 const Experiences = () => {
   const { data } = useQuery('experience', fetchExperience);
@@ -27,15 +28,10 @@ const Experiences = () => {
 
       <Stack spacing={5}>
         {experience?.map((job, index) => (
-          <SlideFade
-            key={job.company}
-            direction='top'
-            in={true}
-            transition={{ enter: { duration: 1, delay: (index / 2.1) - 0.3 } }}
-          >
+          <SlideUpWhenVisible key={job.company}>
             <WorkExperience data={job} />
             {index !== experience?.length - 1 && <Divider my='10px' />}
-          </SlideFade>
+          </SlideUpWhenVisible>
         ))}
       </Stack>
     </Box >
