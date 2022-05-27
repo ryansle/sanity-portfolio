@@ -19,8 +19,6 @@ const References = () => {
 
       <SimpleGrid columns={{ sm: 1, md: 2, lg: 3 }} spacing={4}>
         {isDesktopScreen && (
-
-
           <>
             <Stack spacing={4}>
               {data?.slice(0, 2).map((ref) => (
@@ -30,6 +28,8 @@ const References = () => {
                   title={ref.title}
                   imgPath={ref.imageUrl}
                   referral={ref.referral}
+                  linkedin={ref.linkedin}
+                  email={ref.email}
                 />
               ))}
             </Stack>
@@ -42,6 +42,8 @@ const References = () => {
                   title={ref.title}
                   imgPath={ref.imageUrl}
                   referral={ref.referral}
+                  linkedin={ref.linkedin}
+                  email={ref.email}
                 />
               ))}
             </Stack>
@@ -54,6 +56,8 @@ const References = () => {
                   title={ref.title}
                   imgPath={ref.imageUrl}
                   referral={ref.referral}
+                  linkedin={ref.linkedin}
+                  email={ref.email}
                 />
               ))}
             </Stack>
@@ -70,6 +74,8 @@ const References = () => {
                   title={ref.title}
                   imgPath={ref.imageUrl}
                   referral={ref.referral}
+                  linkedin={ref.linkedin}
+                  email={ref.email}
                 />
               ))}
             </Stack>
@@ -81,6 +87,8 @@ const References = () => {
                   title={ref.title}
                   imgPath={ref.imageUrl}
                   referral={ref.referral}
+                  linkedin={ref.linkedin}
+                  email={ref.email}
                 />
               ))}
             </Stack>

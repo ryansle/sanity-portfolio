@@ -1,8 +1,16 @@
 // Components
-import { Box, Text, Image, useColorModeValue } from '@chakra-ui/react';
+import { Box, Text, Flex, Image, IconButton, useColorModeValue } from '@chakra-ui/react';
+import { AiFillLinkedin as LinkedIn } from 'react-icons/ai';
+import { EmailIcon as Email } from '@chakra-ui/icons';
 
-const Reference = ({ imgPath, name, title, referral }) => {
+// Utilities
+import { useRouter } from 'next/router';
+
+const Reference = ({ imgPath, name, title, referral, linkedin, email }) => {
   const bgColor = useColorModeValue('white', 'gray.900');
+  const flavorColor = useColorModeValue('#309795', '#4FD1C');
+
+  const router = useRouter();
 
   return (
     <Box
@@ -21,9 +29,29 @@ const Reference = ({ imgPath, name, title, referral }) => {
         />
 
         <Box ml={5}>
-          <Text fontSize='lg' fontWeight={600}>
-            {name}
-          </Text>
+          <Flex align='self-start'>
+            <Text fontSize='lg' fontWeight={600}>
+              {name}
+            </Text>
+            <Box display='flex' float='right' ml={3}>
+              {linkedin && (
+                <IconButton
+                  icon={<LinkedIn color={flavorColor} />}
+                  variant='ghost'
+                  size='xs'
+                  onClick={() => router.push(linkedin)}
+                />
+              )}
+              {email && (
+                <IconButton
+                  icon={<Email color={flavorColor} />}
+                  variant='ghost'
+                  size='xs'
+                  onClick={() => router.push(`mailto:${email}`)}
+                />
+              )}
+            </Box>
+          </Flex>
 
           <Text color='gray'>
             {title}
@@ -31,7 +59,7 @@ const Reference = ({ imgPath, name, title, referral }) => {
         </Box>
       </Box>
 
-      <Text >
+      <Text>
         {referral}
       </Text>
     </Box>

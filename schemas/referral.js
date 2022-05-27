@@ -30,6 +30,18 @@ export default {
       description: 'A short summary of your contributions here.',
       validation: (rule) => rule.required(),
     },
+    {
+      name: 'linkedin',
+      title: 'LinkedIn',
+      type: 'string',
+      description: 'Link to their LinkedIn profile.',
+    },
+    {
+      name: 'email',
+      title: 'Email Address',
+      type: 'string',
+      description: 'An email for them to be reached at.',
+    },
   ],
   preview: {
     select: {

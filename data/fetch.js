@@ -70,6 +70,8 @@ const fetchReferrals = async () => {
     title,
     'imageUrl': avatar.asset->url,
     referral,
+    linkedin,
+    email,
   }`);
 
   return data;
