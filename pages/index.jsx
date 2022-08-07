@@ -19,6 +19,11 @@ const Home = () => {
           content='Looking to fill a role on your software development team? Look no further - learn why you consider hiring me, Ryan Le.'
         />
         <meta property='og:image' content='https://i.imgur.com/jyYmCzt.jpg' />
+        <meta
+          name='keywords'
+          content='Front-End, React.js, Freelance, Web Engineer, Ryan Le, Front-End Developer, Web Engineer, Chakra UI, Ryan Le New York, Ryan Le Sioux Falls, Ryan Le Software Engineer, Ryan Le Web Engineer, Freelance Developer, Freelance Engineer, Ryan Le Web Develpment, Web Developer'
+        />
+        <meta name='author' content='Ryan Le' />
       </Head>
 
       <Introduction />
