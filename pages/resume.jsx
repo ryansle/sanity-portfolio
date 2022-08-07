@@ -24,7 +24,7 @@ const Resume = () => {
           <Text fontSize='lg'>
             Sometimes less is more. So, here's a condensed version of my portfolio site, ready to be parsed by your company's applicant tracking system.
           </Text>
-          <a href='/ryan-resume.pdf' download>
+          {/* <a href='/resume.pdf' download>
             <Button
               bg={themeColor}
               colorScheme='teal'
@@ -33,7 +33,7 @@ const Resume = () => {
             >
               Download Resume
             </Button>
-          </a>
+          </a> */}
         </Stack>
       </Box>
     </AppNavigation>

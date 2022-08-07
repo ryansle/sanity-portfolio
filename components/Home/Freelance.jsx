@@ -1,7 +1,7 @@
 // Components
 import { Box, Heading, Text, Link as ChakraLink, Button, useColorModeValue } from '@chakra-ui/react';
-import { DownloadIcon as Download } from '@chakra-ui/icons';
-import Link from 'next/link';
+// import { DownloadIcon as Download } from '@chakra-ui/icons';
+// import Link from 'next/link';
 
 const Freelance = () => {
   const flavorText = useColorModeValue('teal.500', 'teal.300');
@@ -26,7 +26,7 @@ const Freelance = () => {
         By the way, I do free consultations. 😉
       </Text>
 
-      <Link href='/ryan-resume.pdf' download>
+      {/* <Link href='/ryan-resume.pdf' download>
         <Button
           bg={flavorText}
           colorScheme='teal'
@@ -34,7 +34,7 @@ const Freelance = () => {
         >
           Download Resume
         </Button>
-      </Link>
+      </Link> */}
     </Box>
   );
 };
