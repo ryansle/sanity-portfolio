@@ -73,6 +73,7 @@ const SocialMedia = ({ title, socials }) => {
               key={item.platform}
               leftIcon={renderIcon(item.platform)}
               onClick={() => router.push(item.link)}
+              aria-label={`View my ${item.platform} profile`}
             >
               {item.platform}
             </Button>

@@ -67,7 +67,7 @@ const References = ({ referrals }) => {
         {!isDesktopScreen && (
           <>
             <Stack spacing={4}>
-              {data?.slice(0, 3).map((ref) => (
+              {data?.slice(0, 4).map((ref) => (
                 <Reference
                   key={ref.name}
                   name={ref.name}
@@ -80,7 +80,7 @@ const References = ({ referrals }) => {
               ))}
             </Stack>
             <Stack spacing={4}>
-              {data?.slice(3, 10).map((ref) => (
+              {data?.slice(4, 10).map((ref) => (
                 <Reference
                   key={ref.name}
                   name={ref.name}
