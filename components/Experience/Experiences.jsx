@@ -9,8 +9,8 @@ import { useQuery } from 'react-query';
 import { fetchExperience } from '../../data/fetch';
 import SlideUpWhenVisible from '../../hooks/SlideUpWhenVisible';
 
-const Experiences = () => {
-  const { data } = useQuery('experience', fetchExperience);
+const Experiences = ({ experiences }) => {
+  const { data } = useQuery('experience', fetchExperience, { initialData: experiences });
   const [experience, setExperience] = useState([]);
 
   useEffect(() => {
@@ -36,6 +36,15 @@ const Experiences = () => {
       </Stack>
     </Box >
   );
+};
+
+export async function getServerSideProps() {
+  const experiences = await fetchExperience();
+  return {
+    props: {
+      experiences,
+    }
+  };
 };
 
 export default Experiences;

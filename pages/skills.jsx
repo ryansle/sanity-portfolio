@@ -11,8 +11,8 @@ import { fetchSkills } from '../data/fetch';
 import { useQuery } from 'react-query';
 import SkillTable from '../components/Skills/SkillTable';
 
-const Skills = () => {
-  const { data: skills } = useQuery('skills', fetchSkills);
+const Skills = ({ skills }) => {
+  const { data: skills } = useQuery('skills', fetchSkills, { initialData: props.skills });
 
   const [web, setWeb] = useState([]);
   const [other, setOther] = useState([]);
@@ -86,6 +86,15 @@ const Skills = () => {
       </SlideFade>
     </AppNavigation>
   );
+};
+
+export async function getServerSideProps() {
+  const skills = await fetchSkills();
+  return {
+    props: {
+      skills,
+    }
+  };
 };
 
 export default Skills;

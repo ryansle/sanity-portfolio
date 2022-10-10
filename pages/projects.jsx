@@ -12,8 +12,8 @@ import { useQuery } from 'react-query';
 import { fetchProjects } from '../data/fetch';
 import NoResults from '../components/Projects/NoResults';
 
-const Projects = () => {
-  const { data: projects, isLoading } = useQuery('projects', fetchProjects);
+const Projects = ({ projects }) => {
+  const { data, isLoading } = useQuery('projects', fetchProjects, { initialData: projects });
 
   // Projects
   const [school, setSchool] = useState([]);
@@ -26,13 +26,13 @@ const Projects = () => {
   const [filteredProjects, setFilteredProjects] = useState([]);
 
   useEffect(() => {
-    if (projects) {
-      setSchool(projects.filter((project) => project.category === 'school').sort((a, b) => a.loadOrder > b.loadOrder ? 1 : -1));
-      setWork(projects.filter((project) => project.category === 'work').sort((a, b) => a.loadOrder > b.loadOrder ? 1 : -1));
-      setPersonal(projects.filter((project) => project.category === 'personal').sort((a, b) => a.loadOrder > b.loadOrder ? 1 : -1));
-      setFreelance(projects.filter((project) => project.category === 'freelance').sort((a, b) => a.loadOrder > b.loadOrder ? 1 : -1));
+    if (data) {
+      setSchool(data.filter((project) => project.category === 'school').sort((a, b) => a.loadOrder > b.loadOrder ? 1 : -1));
+      setWork(data.filter((project) => project.category === 'work').sort((a, b) => a.loadOrder > b.loadOrder ? 1 : -1));
+      setPersonal(data.filter((project) => project.category === 'personal').sort((a, b) => a.loadOrder > b.loadOrder ? 1 : -1));
+      setFreelance(data.filter((project) => project.category === 'freelance').sort((a, b) => a.loadOrder > b.loadOrder ? 1 : -1));
     }
-  }, [projects]);
+  }, [data]);
 
   useEffect(() => {
     if (searchTerm !== '') {
@@ -111,6 +111,15 @@ const Projects = () => {
       )}
     </AppNavigation>
   );
+};
+
+export async function getServerSideProps() {
+  const projects = await fetchProjects();
+  return {
+    props: {
+      projects,
+    }
+  };
 };
 
 export default Projects;

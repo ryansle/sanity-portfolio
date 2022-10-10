@@ -7,8 +7,8 @@ import { fetchReferrals } from '../../data/fetch';
 import { useQuery } from 'react-query';
 import useMediaQuery from '../../hooks/useMediaQuery';
 
-const References = () => {
-  const { data } = useQuery('referrals', fetchReferrals);
+const References = ({ referrals }) => {
+  const { data } = useQuery('referrals', fetchReferrals, { initialData: referrals });
   const isDesktopScreen = useMediaQuery(1200);
 
   return (
@@ -97,6 +97,15 @@ const References = () => {
       </SimpleGrid>
     </Box>
   );
+};
+
+export async function getServerSideProps() {
+  const referrals = await fetchReferrals();
+  return {
+    props: {
+      referrals,
+    }
+  };
 };
 
 export default References;

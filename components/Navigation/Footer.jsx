@@ -13,8 +13,8 @@ import { fetchSocialMedia } from '../../data/fetch';
 import { useQuery } from 'react-query';
 import { useRouter } from 'next/router';
 
-const Footer = () => {
-  const { data: socials } = useQuery('socials', fetchSocialMedia);
+const Footer = ({ socials }) => {
+  const { data } = useQuery('socials', fetchSocialMedia, { initialData: socials });
   const router = useRouter();
 
   // Styles
@@ -48,7 +48,7 @@ const Footer = () => {
     >
       <Box>
         <Center mb={3}>
-          {socials?.map((item) => (
+          {data?.map((item) => (
             <Icon
               key={item.platform}
               color={flavorText}
@@ -74,6 +74,15 @@ const Footer = () => {
       </Box>
     </Center>
   );
+};
+
+export async function getServerSideProps() {
+  const socials = await fetchSocialMedia();
+  return {
+    props: {
+      socials,
+    }
+  };
 };
 
 export default Footer;

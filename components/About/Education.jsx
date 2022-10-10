@@ -20,8 +20,8 @@ import { fetchAccomplishments } from '../../data/fetch';
 import { useQuery } from 'react-query';
 import SlideUpWhenVisible from '../../hooks/SlideUpWhenVisible';
 
-const Education = () => {
-  const { data: accomplishments } = useQuery('accomplishments', fetchAccomplishments);
+const Education = ({ accomplishments }) => {
+  const { data } = useQuery('accomplishments', fetchAccomplishments, { initialData: accomplishments });
 
   // Styles
   const flavorText = useColorModeValue('teal.500', 'teal.300');
@@ -63,7 +63,7 @@ const Education = () => {
             Accomplishments
           </Heading>
           <List spacing={2}>
-            {accomplishments?.map((bullet) => (
+            {data?.map((bullet) => (
               <ListItem key={bullet.accomplishment} fontSize='sm'>
                 <ListIcon as={Check} color={flavorText} />
                 {bullet.accomplishment}
@@ -74,6 +74,15 @@ const Education = () => {
       </Flex>
     </SlideUpWhenVisible>
   );
+};
+
+export async function getServerSideProps() {
+  const accomplishments = await fetchAccomplishments();
+  return {
+    props: {
+      accomplishments,
+    }
+  };
 };
 
 export default Education;

@@ -21,8 +21,8 @@ import { useQuery } from 'react-query';
 import { useRouter } from 'next/router';
 
 // TODO: color glitch
-const SocialMedia = ({ title, }) => {
-  const { data: socials, isLoading } = useQuery('socials', fetchSocialMedia);
+const SocialMedia = ({ title, socials }) => {
+  const { data, isLoading } = useQuery('socials', fetchSocialMedia, { initialData: socials });
   const router = useRouter();
 
   // Styles
@@ -68,7 +68,7 @@ const SocialMedia = ({ title, }) => {
         )}
 
         {!isLoading && (
-          socials?.map((item) => (
+          data?.map((item) => (
             <Button
               key={item.platform}
               leftIcon={renderIcon(item.platform)}
@@ -81,6 +81,15 @@ const SocialMedia = ({ title, }) => {
       </Wrap>
     </Box>
   );
+};
+
+export async function getServerSideProps() {
+  const socials = await fetchSocialMedia();
+  return {
+    props: {
+      socials,
+    }
+  };
 };
 
 export default SocialMedia;
