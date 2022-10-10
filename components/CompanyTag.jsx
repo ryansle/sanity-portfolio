@@ -4,6 +4,8 @@ import { Badge } from '@chakra-ui/react';
 const CompanyTag = ({ content }) => {
   const renderColorScheme = (content) => {
     switch (content) {
+      case 'CrowdStrike':
+        return 'red';
       case 'American Express':
         return 'blue';
       case 'Nelnet':

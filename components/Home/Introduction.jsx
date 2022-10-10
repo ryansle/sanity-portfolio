@@ -44,7 +44,7 @@ const Introduction = () => {
             transition={{ enter: { duration: 0.4, delay: 0.9 } }}
           >
             <Text fontSize='display3'>
-              I'm currently a <chakra.span color={flavorText} fontWeight={600}>Web Engineer III</chakra.span> at American Express, working on all things front-end.
+              I'm currently a <chakra.span color={flavorText} fontWeight={600}>UI Engineer II</chakra.span> at CrowdStrike, working on all things front-end.
             </Text>
 
             <Stack mt={10}>

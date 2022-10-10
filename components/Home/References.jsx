@@ -21,7 +21,7 @@ const References = () => {
         {isDesktopScreen && (
           <>
             <Stack spacing={4}>
-              {data?.slice(0, 2).map((ref) => (
+              {data?.slice(0, 3).map((ref) => (
                 <Reference
                   key={ref.name}
                   name={ref.name}
@@ -35,7 +35,7 @@ const References = () => {
             </Stack>
 
             <Stack spacing={4}>
-              {data?.slice(2, 4).map((ref) => (
+              {data?.slice(3, 5).map((ref) => (
                 <Reference
                   key={ref.name}
                   name={ref.name}
@@ -49,7 +49,7 @@ const References = () => {
             </Stack>
 
             <Stack spacing={4}>
-              {data?.slice(4, 10).map((ref) => (
+              {data?.slice(5, 10).map((ref) => (
                 <Reference
                   key={ref.name}
                   name={ref.name}
