@@ -43,10 +43,10 @@ const Biography = () => {
           >
             <Stack spacing={5}>
               <Text fontSize='lg'>
-                Hey there! My name is Ryan Le and I am a recent<chakra.span color={flavorText} fontWeight='semibold'>*</chakra.span> graduate of the University of Nebraska-Lincoln with a Bachelor of Science degree in Software Engineering - minor in Mathematics.
+                Hey there! My name is Ryan Le and I am a 2021 graduate of the University of Nebraska-Lincoln with a Bachelor of Science degree in Software Engineering - minor in Mathematics.
               </Text>
               <Text fontSize='lg'>
-                I am a Vietnamese-American front-end developer originally from Sioux Falls, South Dakota. Currently, I am based out of the New York City area. I primarily work with web-based technologies such as React.js, TypeScript, JavaScript, Node.js, and Chakra UI, among other things.
+                I am a Vietnamese-American front-end developer originally from Sioux Falls, South Dakota. Currently, I am based out of the New York City area. I primarily work with web-based technologies such as React.js, TypeScript, JavaScript, Node.js, and Tailwind CSS, among other things.
               </Text>
               <Text fontSize='lg'>
                 I got my start in the world of software engineering at the young age of 11 when I was invited to join Re-Logic as a {betaToolTip} for the hit indie game, {terrariaToolTip}
@@ -66,7 +66,7 @@ const Biography = () => {
             align='center'
           >
             <Image
-              src='https://i.imgur.com/Cnbdpg1.png'
+              src='https://i.imgur.com/RufrMhW.png'
               width={['100%', 420]}
               height='auto'
               borderRadius={10}
@@ -74,7 +74,7 @@ const Biography = () => {
               mt={10}
             />
             <Text mt={5} mb={-5} color='gray'>
-              Lincoln, Nebraska, 2021
+              February 2023
             </Text>
           </SlideFade>
         </Box>

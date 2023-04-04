@@ -12,7 +12,7 @@ import { useQuery } from 'react-query';
 import SkillTable from '../components/Skills/SkillTable';
 
 const Skills = ({ skills }) => {
-  const { data: skills } = useQuery('skills', fetchSkills, { initialData: props.skills });
+  const { data } = useQuery('skills', fetchSkills, { initialData: skills });
 
   const [web, setWeb] = useState([]);
   const [other, setOther] = useState([]);
@@ -20,11 +20,11 @@ const Skills = ({ skills }) => {
 
   useEffect(() => {
     if (skills) {
-      setWeb(skills.filter((skill) => skill.category === 'webdev' && skill.visible));
-      setOther(skills.filter((skill) => skill.category === 'other' && skill.visible));
-      setRandom(skills.filter((skill) => skill.category === 'random' && skill.visible));
+      setWeb(data.filter((skill) => skill.category === 'webdev' && skill.visible));
+      setOther(data.filter((skill) => skill.category === 'other' && skill.visible));
+      setRandom(data.filter((skill) => skill.category === 'random' && skill.visible));
     }
-  }, [skills]);
+  }, [data]);
 
   return (
     <AppNavigation>

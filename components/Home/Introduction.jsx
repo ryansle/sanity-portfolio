@@ -75,7 +75,7 @@ const Introduction = () => {
             align='center'
           >
             <Image
-              src='https://i.imgur.com/TAchISX.jpg'
+              src='https://i.imgur.com/rKshywQ.jpg'
               width='full'
               height='auto'
               borderRadius={25}
