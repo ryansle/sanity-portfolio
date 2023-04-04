@@ -75,7 +75,7 @@ const Introduction = () => {
             align='center'
           >
             <Image
-              src='https://i.imgur.com/rKshywQ.jpg'
+              src='https://i.imgur.com/ZgmylRQ.jpg'
               width='full'
               height='auto'
               borderRadius={25}
@@ -83,8 +83,7 @@ const Introduction = () => {
               mt={10}
             />
             <Text mt={5} color='gray' align='center'>
-              Here's me in Sandpoint, Idaho. <br />
-              I like to travel.
+              Taken in New York City in March of 2023
             </Text>
           </SlideFade>
         </Box>
